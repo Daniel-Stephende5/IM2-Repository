@@ -5,3 +5,4 @@
 
 [Gnatt Chart](https://www.canva.com/design/DAGRddDRy3Y/X8VenPe8f68Lr2Fgo6eRmQ/edit)
 
+[ERD](https://drive.google.com/file/d/1WhFnhzwXh_JXbuH18tJD9ri-ZCCkUzlR/view)
