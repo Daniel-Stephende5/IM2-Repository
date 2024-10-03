@@ -1,5 +1,6 @@
-# IM2-Repository
+#IM2-Repository CSIT327
 #Group Memebers: John Gabriel Cañal, Daniel Stephen Delima, Allen Luis Mangoroban
+#Airplane Boarding system
 
 [UI-UX_DESIGN Figma](https://www.figma.com/design/0e5BfOdvtAELFK7U6jpDsq/Tripma---Flight-booking-web-app-(Community)?node-id=740-19142&node-type=canvas&t=QmWufvuFsKdPfEj8-0)
 
