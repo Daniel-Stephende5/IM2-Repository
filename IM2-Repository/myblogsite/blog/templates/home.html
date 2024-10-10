@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #ffcb05;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?airplane,travel') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        .hero-section a {
+            padding: 15px 30px;
+            background-color: #ffcb05;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .hero-section a:hover {
+            background-color: #ff9f05;
+        }
+        section {
+            padding: 40px 20px;
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .feature-box {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+        .feature-box img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+        .feature-box h3 {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            color: #333;
+        }
+        .feature-box p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        footer {
+            margin-top: 40px;
+            background-color: #333;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'flights' %}">View Flights</a>
+        <a href="{% url 'info' %}">Information</a>
+        <a href="{% url 'checkin' %}">Check In</a>
+        <a href="{% url 'booking' %}">Booking</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div>
+            <h1>Welcome to Your Airline</h1>
+            <p>Your gateway to the skies. Explore flights, check in, and more.</p>
+            <a href="{% url 'flights' %}">Book a Flight Now</a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section>
+        <h2>Our Services</h2>
+        <div class="features">
+            <div class="feature-box">
+                <img src="https://source.unsplash.com/600x400/?airplane,flight" alt="Flights">
+                <h3>Flight Schedules</h3>
+                <p>Stay updated with the latest flight schedules and destinations available.</p>
+                <a href="{% url 'flights' %}" class="button">View Flights</a>
+            </div>
+            <div class="feature-box">
+                <img src="https://source.unsplash.com/600x400/?airport,travel" alt="Check-in">
+                <h3>Online Check-In</h3>
+                <p>Skip the lines and check in online for a hassle-free travel experience.</p>
+                <a href="{% url 'checkin' %}" class="button">Check In</a>
+            </div>
+            <div class="feature-box">
+                <img src="https://source.unsplash.com/600x400/?travel,information" alt="Information">
+                <h3>Travel Information</h3>
+                <p>Find essential travel information, tips, and safety guidelines for your journey.</p>
+                <a href="{% url 'info' %}" class="button">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Airline Company. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
