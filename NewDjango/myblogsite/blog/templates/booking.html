@@ -1,12 +1,56 @@
+{%load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Booking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static  'main.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static  'booking.css' %}"> 
+    <title>BOOKING</title>
+
 </head>
 <body>
-    <h1>Booking Page</h1>
-    <p>This is the booking page.</p>
-    <a href="{% url 'home' %}">Back to Home</a>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'flights' %}">View Flights</a>
+        <a href="{% url 'info' %}">Information</a>
+        <a href="{% url 'checkin' %}">Check In</a>
+        <a href="{% url 'booking' %}">Booking</a>
+    </nav>
+
+  
+    <div class="hero-section">
+        <div>   
+            <h1>Book A Flight</h1>        
+            <form>
+                <label for="fromCity">From City:</label>
+                <input type="text" id="fromCity" name="fromCity" placeholder="Enter departure city">
+                
+                <label for="toCity">To City:</label>
+                <input type="text" id="toCity" name="toCity" placeholder="Enter destination city">
+                
+                <label for="departureDate">Departure Date:</label>
+                <input type="date" id="departureDate" name="departureDate" placeholder="Select departure date">
+                
+                <label for="returnDate">Return Date:</label>
+                <input type="date" id="returnDate" name="returnDate" placeholder="Select return date">
+                
+                <label for="passengers">Passengers:</label>
+                <input type="number" id="passengers" name="passengers" min="1" placeholder="Number of passengers">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address">
+                
+                <div class="submit-container">
+                    <input id="continue" type="submit" value="Continue">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Airline Company. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
