@@ -1,16 +1,41 @@
+{%load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static  'main.css' %}"> 
+        <link rel="stylesheet" type="text/css" href="{% static  'login.css' %}"> 
+        <title>Login</title>
+    </head>
+    <nav>
+        <a href="{% url 'home' %}" >Home</a>
+        <a href="{% url 'flights' %}">View Flights</a>
+        <a href="{% url 'info' %}">Information</a>
+        <a href="{% url 'checkin' %}">Check In</a>
+        <a href="{% url 'booking' %}">Booking</a>
+        <a href="{% url 'signup' %}">Sign up</a>
+        <a href="{% url 'login' %}"style="color: #ffcb05;">Login</a>
+    </nav>
 <body>
-    <h1>Login</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
-    <a href="{% url 'signup' %}">Don't have an account? Sign up here.</a>
+    
+    <div class="login-container">
+        <h1 >Login</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="{{ form.username.id_for_label }}">Username</label>
+                <input type="text" name="username" id="{{ form.username.id_for_label }}" placeholder="Enter your Username" required>
+            </div>
+            <div>
+                <label for="{{ form.password.id_for_label }}">Password</label>
+                <input type="password" name="password" id="{{ form.password.id_for_label }}" placeholder="Enter your Password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        
+        <a href="{% url 'signup' %}">Don't have an account? Sign up here.</a>
+    </div>
+    
 </body>
 </html>

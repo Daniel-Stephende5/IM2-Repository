@@ -28,6 +28,7 @@ nav a:hover {
     color: #ffcb05;
 }
 .hero-section {
+    
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?airplane,travel') no-repeat center center/cover;
     height: 80vh;
     display: flex;
