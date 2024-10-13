@@ -11,4 +11,5 @@ urlpatterns = [
     path('info/', info_view, name='info'),  # Info URL
     path('checkin/', checkin_view, name='checkin'),  # Check-in URL
     path('booking/', booking_view, name='booking'),  # Booking URL
+    
 ]

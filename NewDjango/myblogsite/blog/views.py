@@ -55,3 +55,5 @@ def checkin_view(request):
 # Booking View
 def booking_view(request):
     return render(request, 'booking.html')  # Create a corresponding booking.html template
+
+
