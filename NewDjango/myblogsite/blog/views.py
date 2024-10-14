@@ -56,4 +56,7 @@ def checkin_view(request):
 def booking_view(request):
     return render(request, 'booking.html')  # Create a corresponding booking.html template
 
+# Logout View
+def logout_view(request):
+    return render(request, 'logout.html')
 
