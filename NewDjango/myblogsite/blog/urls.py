@@ -1,6 +1,6 @@
 from django.contrib import admin  # Import the admin module
 from django.urls import path
-from .views import signup_view, login_view, home_view, flights_view, info_view, checkin_view, booking_view,logout_view
+from .views import signup_view, login_view, home_view, flights_view, info_view, checkin_view, booking_view,logout_view, contact_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # Admin site URL
@@ -12,5 +12,6 @@ urlpatterns = [
     path('checkin/', checkin_view, name='checkin'),  # Check-in URL
     path('booking/', booking_view, name='booking'),  # Booking URL
     path('logout/', logout_view, name='logout'),  # Booking URL
+    path('contact/', contact_view, name='contact'),
     
 ]

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from .forms import SignupForm, LoginForm  
+from .forms import ContactForm
 
 # Signup View
 def signup_view(request):
@@ -56,6 +57,25 @@ def checkin_view(request):
 def booking_view(request):
     return render(request, 'booking.html')  # Create a corresponding booking.html template
 
+def contact_view(request):
+    form = ContactForm() 
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Process the form data (you could save it to the database or send an email)
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+
+            # For now, just render the form with a success message
+            return render(request, 'customersupport.html', {'form': form, 'success': True})
+    else:
+        form = ContactForm()
+    
+    return render(request, 'customersupport.html', {'form': form})
 # Logout View
 def logout_view(request):
     return render(request, 'logout.html')

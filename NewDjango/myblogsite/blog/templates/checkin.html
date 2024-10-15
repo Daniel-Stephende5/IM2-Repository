@@ -3,10 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <title>Check In</title>
+    <style>
+        /* Add styles for the star rating */
+        .star {
+            font-size: 20px;
+            color: #ccc; /* Default color */
+            cursor: pointer; /* Change cursor to pointer */
+        }
+ 
+        .star.hover,
+        .star.selected {
+            color: #FFD700; /* Color when hovered or selected */
+        }
+ 
+        /* Styles for error and success messages */
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+            margin-bottom: 10px;
+        }
+ 
+        .success {
+            color: green;
+            font-size: 16px;
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
-<body>
+<body style="font-family: Arial, sans-serif; background-color: #E5E5E5; display: flex; justify-content: center; align-items: center; height: 100vh;">
     <h1>Check-In Page</h1>
     <p>This is the check-in page.</p>
     <a href="{% url 'home' %}">Back to Home</a>
+   
+ 
+        <form id="feedback-form" action="" method="POST" style="background-color: white; border-radius: 10px; padding: 20px; width: 400px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 1px solid #ccc; margin: 20px;">
+            <h2 style="text-align: center; color: #333;">Feedback Form</h2>
+     
+            <!-- Error message for empty fields -->
+            <div class="error" id="error-message">Please fill in all fields.</div>
+     
+            <!-- Name -->
+            <div style="margin-bottom: 20px;">
+                <label for="name" style="display: block; margin-bottom: 5px; font-weight: bold;">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required
+                    style="width: calc(100% - 20px); padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; margin-right: 10px;">
+            </div>
+     
+            <!-- Email -->
+            <div style="margin-bottom: 20px;">
+                <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required
+                    style="width: calc(100% - 20px); padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; margin-right: 10px;">
+            </div>
+     
+            <!-- Rating -->
+            <div style="margin-bottom: 20px;">
+                <label for="rating" style="display: block; margin-bottom: 5px; font-weight: bold;">Share your experience in rating</label>
+                <div style="display: flex; align-items: center;" id="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+                <input type="hidden" id="rating-value" name="rating" value="0"> <!-- Hidden input to store selected rating -->
+            </div>
+     
+            <!-- Comment -->
+            <div style="margin-bottom: 20px;">
+                <label for="comments" style="display: block; margin-bottom: 5px; font-weight: bold;">Add your comments</label>
+                <textarea id="comments" name="comments" rows="4" placeholder="Add your comments..."
+                    style="width: calc(100% - 20px); padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; margin-right: 10px;"></textarea>
+            </div>
+     
+            <!-- Buttons -->
+            <div style="text-align: right;">
+                <button type="reset" style="padding: 10px 15px; margin-right: 10px; border: none; background-color: #ccc; color: white; border-radius: 5px; cursor: pointer;">Cancel</button>
+                <button type="button" id="submit-btn" style="padding: 10px 15px; border: none; background-color: #007BFF; color: white; border-radius: 5px; cursor: pointer;">Submit</button>
+            </div>
+     
+            <!-- Success message -->
+            <div class="success" id="success-message">Feedback sent successfully!</div>
+        </form>
+     
+        <script>
+            // JavaScript to handle star rating
+            const stars = document.querySelectorAll('.star');
+            const ratingValue = document.getElementById('rating-value');
+            const form = document.getElementById('feedback-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+     
+            stars.forEach(star => {
+                star.addEventListener('mouseover', () => {
+                    stars.forEach(s => s.classList.remove('hover'));
+                    star.classList.add('hover');
+                    let previousStar = star.previousElementSibling;
+                    while (previousStar) {
+                        previousStar.classList.add('hover');
+                        previousStar = previousStar.previousElementSibling;
+                    }
+                });
+     
+                star.addEventListener('mouseout', () => {
+                    stars.forEach(s => s.classList.remove('hover'));
+                    stars.forEach(s => {
+                        if (s.classList.contains('selected')) {
+                            s.classList.add('hover');
+                        }
+                    });
+                });
+     
+                star.addEventListener('click', () => {
+                    stars.forEach(s => s.classList.remove('selected'));
+                    star.classList.add('selected');
+                    let previousStar = star.previousElementSibling;
+                    while (previousStar) {
+                        previousStar.classList.add('selected');
+                        previousStar = previousStar.previousElementSibling;
+                    }
+                    ratingValue.value = star.dataset.value; // Set the value in hidden input
+                });
+            });
+     
+            // Form validation and submission
+            submitBtn.addEventListener('click', () => {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const rating = ratingValue.value;
+                const comments = document.getElementById('comments').value;
+     
+                // Check if any fields are empty
+                if (name === '' || email === '' || rating === '0' || comments === '') {
+    errorMessage.style.display = 'block';
+    successMessage.style.display = 'none'; // Hide success message if it's showing
+                } else {
+    errorMessage.style.display = 'none';
+    successMessage.style.display = 'block';
+                    form.reset(); // Reset the form fields after submission
+                    stars.forEach(s => s.classList.remove('selected')); // Reset star rating
+                    ratingValue.value = '0'; // Reset hidden input value
+                }
+            });
+        </script>
+    </body>
 </body>
 </html>

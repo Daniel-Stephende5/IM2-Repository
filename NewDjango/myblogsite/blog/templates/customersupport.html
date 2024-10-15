@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F5F5F5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        nav {
+            background-color: #333;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Centering links in navbar */
+        .navbar-links {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .contact-info {
+            background-color: #635BFF;
+            color: white;
+            padding: 40px;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 20px;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+        }
+
+        .contact-info ul {
+            list-style: none;
+        }
+
+        .contact-info ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-info ul li i {
+            font-size: 20px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .form-section {
+            padding: 40px;
+            width: 60%;
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-section input, .form-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-section input[type="radio"] {
+            width: auto;
+        }
+
+        .form-section .form-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+        }
+
+        .form-group input:first-child {
+            margin-right: 20px;
+        }
+
+        .form-section .message-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .form-section .submit-btn {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Nav Section -->
+    <nav>
+        <div class="navbar-links">
+            <a href="{% url 'home' %}" style="color: #ffcb05;">Home</a>
+            <a href="{% url 'flights' %}">View Flights</a>
+            <a href="{% url 'info' %}">Information</a>
+            <a href="{% url 'checkin' %}">Check In</a>
+            <a href="{% url 'booking' %}">Booking</a>
+            <a href="#contact-section">Customer Support</a>
+            <a href="{% url 'signup' %}">Sign up</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'logout' %}">Logout</a>
+            
+            
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div id="contact-section" class="container">
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>Say something to start a live chat!</p>
+            <ul>
+                <li><i class="fa fa-phone"></i> +1012 3456 789</li>
+                <li><i class="fa fa-envelope"></i> demo@gmail.com</li>
+                <li><i class="fa fa-map-marker"></i> 132 Dartmouth Street Boston, Massachusetts 02156 United States</li>
+            </ul>
+            <div class="social-icons">
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-discord"></i></a>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Contact Us</h2>
+            <form action="">
+                <div class="form-group">
+                    <div>
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" placeholder="First Name">
+                    </div>
+                    <div>
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" placeholder="Last Name">
+                    </div>
+                </div>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email">
+
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="+1 012 3456 789">
+
+                <label>Select Subject?</label>
+                <div class="message-group">
+                    <input type="radio" name="subject" id="general1" value="general1">
+                    <label for="general1">General Inquiry</label>
+                    <input type="radio" name="subject" id="general2" value="general2">
+                    <label for="general2">General Inquiry</label>
+                    <input type="radio" name="subject" id="general3" value="general3">
+                    <label for="general3">General Inquiry</label>
+                </div>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Write your message.."></textarea>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
