@@ -6,8 +6,8 @@ Members:
 - Daniel Stephen Delima
 - Allen Luis Mangoroban  
 
-
-## **TO Run**
+---
+**TO Run**
 1. cd NewDjango
 2. myenv\Scripts\activate
 3. cd myblogsite
