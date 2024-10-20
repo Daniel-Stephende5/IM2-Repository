@@ -1,7 +1,5 @@
 # **Airplane Boarding System**
 
----
-
 IM2-Repository CSIT327  
 Group Members: 
 - John Gabriel Cañal
