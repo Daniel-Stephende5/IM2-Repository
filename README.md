@@ -9,7 +9,14 @@ Members:
 ---
 **TO Run**
 1. cd NewDjango
-2. myenv\Scripts\activate ___ for mac "source myenv/bin/activate"
+2. Create a virtual environment (Optional but recommended)
+  python -m venv myenv
+   
+   For Windows:
+   myenv\Scripts\activate
+
+   For macOS:
+   source myenv/bin/activate
 3. cd myblogsite
 4. python manage.py runserver
 
