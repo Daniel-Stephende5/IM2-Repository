@@ -21,7 +21,6 @@ LINKS
 [FRD (DONT ACCESS #NEEDS UPDATE LINK)](https://www.canva.com/design/DAGO7lpnNZg/9ZhqjOaX9rZwcGhNJXZN8Q/edit)
 
 # ** Project Summary **
----
+
 An Airplane Boarding System is a web application that allows users to manage various aspects of their flight experience. It provides features for passengers to check in for their flights, track the status of upcoming flights, and view available flight schedules. Users can securely log in and log out of their accounts, with new users having the option to sign up for access. This system aims to streamline the boarding process by offering a user-friendly interface for managing flight-related tasks online.
 
-![screencapture-127-0-0-1-8000-2024-10-10-21_16_12](https://github.com/user-attachments/assets/2a9f1865-6907-4c1c-9615-69a093a93198)
