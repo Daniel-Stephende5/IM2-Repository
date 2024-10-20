@@ -30,10 +30,10 @@ An Airplane Boarding System is a web application that allows users to manage var
 
 # List of Features:
 
-1.     LOGIN
-2.     LOGOUT
-3.     SIGN UP
-4.     CHECK IN
-5.     TRACKING STATUS
-6.     VIEW FLIGHTS
+1. LOGIN
+2. LOGOUT
+3. SIGN UP
+4. CHECK IN
+5. TRACKING STATUS
+6. VIEW FLIGHTS
 
