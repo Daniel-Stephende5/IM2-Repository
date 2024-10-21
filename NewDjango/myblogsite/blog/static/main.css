@@ -5,12 +5,10 @@
 }
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
     text-align: center;
 }
-nav {
-    background-color: rgba(0, 0, 0, 0.8);
+/* nav {
+    background-color: #3494dd;
     padding: 15px 0;
     position: sticky;
     top: 0;
@@ -25,8 +23,8 @@ nav a {
     font-weight: bold;
 }
 nav a:hover {
-    color: #ffcb05;
-}
+    color: #000000;
+} */
 .hero-section {
     
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?airplane,travel') no-repeat center center/cover;
@@ -37,17 +35,14 @@ nav a:hover {
     color: white;
     text-align: center;
 }
-.hero-section h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-}
+
 .hero-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
 }
 .hero-section a {
     padding: 15px 30px;
-    background-color: #ffcb05;
+    background-color:#1dc1fd;
     color: #333;
     text-decoration: none;
     font-size: 1.1rem;
@@ -56,7 +51,7 @@ nav a:hover {
     transition: background-color 0.3s ease;
 }
 .hero-section a:hover {
-    background-color: #ff9f05;
+    background-color: #00d9ff;
 }
 section {
     padding: 40px 20px;
@@ -98,9 +93,13 @@ section h2 {
     margin-bottom: 20px;
 }
 footer {
-    margin-top: 40px;
+    
     background-color: #333;
-    padding: 20px;
+    padding: 40px;
     color: white;
     text-align: center;
+}
+
+.welcome{
+    font-size: 40px;
 }
