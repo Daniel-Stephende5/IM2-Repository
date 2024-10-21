@@ -1,43 +1,41 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static  'main.css' %}"> 
-    <link rel="stylesheet" type="text/css" href="{% static  'navbar.css' %}"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static  'main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static  'navbar.css' %}" />
     <title>HOME</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- Navigation Bar -->
     <nav>
-        <a href="{% url 'home' %}" style="color: #000;">Home</a>
-        <a href="{% url 'flights' %}">View Flights</a>
-        <a href="{% url 'info' %}">Information</a>
-        <a href="{% url 'checkin' %}">Check In</a>
-        <a href="{% url 'booking' %}">Booking</a>
-        <a href="{% url 'contact' %}">Customer Support</a>
-        <a href="{% url 'signup' %}">Sign up</a>
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'logout' %}">Logout</a>
+      <a href="{% url 'home' %}" style="color: #000">Home</a>
+      <a href="{% url 'flights' %}">View Flights</a>
+      <a href="{% url 'info' %}">Information</a>
+      <a href="{% url 'checkin' %}">Check In</a>
+      <a href="{% url 'booking' %}">Booking</a>
+      <a href="{% url 'contact' %}">Customer Support</a>
+      <a href="{% url 'signup' %}">Sign up</a>
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'logout' %}">Logout</a>
     </nav>
 
     <!-- Hero Section -->
     <div class="hero-section home-bg">
-        <div>
-            <h1 class="welcome">WELCOME TO OUR FLIGHT MANAGEMENT SYSTEM</h1>
-            <p>Your gateway to the skies. Explore flights, check in, and more.</p>
-            <a href="{% url 'flights' %}">Book a Flight Now</a>
-        </div>
+      <div>
+        <h1 class="welcome">WELCOME TO OUR FLIGHT MANAGEMENT SYSTEM</h1>
+        <p>Your gateway to the skies. Explore flights, check in, and more.</p>
+        <a href="{% url 'flights' %}">Book a Flight Now</a>
+      </div>
     </div>
 
     <!-- Features Section -->
 
     <!-- Footer -->
     <footer class="footer-class">
-        <p>&copy; 2024 Airline Company. All rights reserved.</p>
+      <p>&copy; 2024 Airline Company. All rights reserved.</p>
     </footer>
-
-</body>
+  </body>
 </html>
