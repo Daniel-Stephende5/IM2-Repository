@@ -1,8 +1,24 @@
-#flight-guide {
-    font-size: 45px;
+.info-section {
+    display: flex;                /* Use flexbox for layout */
+    justify-content: center;      /* Center items horizontally */
+    align-items: center;          /* Align items vertically in the center */
+    max-width: 1200px;           /* Set a maximum width for the section */
+    margin: 0 auto;              /* Center the section on the page */
+    padding: 20px;               /* Add some padding around the section */
 }
 
+.about-text-content {
+    flex: 1;                     /* Allow the text content to take available space */
+    text-align: left;            /* Align text to the left */
+    padding-right: 20px;         /* Add space between text and image */
+}
 
-#black-color{
-    color: black;
+.about-line-image {
+    max-width: 100%;             /* Ensure image doesn't overflow */
+    height: auto;                /* Maintain aspect ratio */
+}
+
+.about-line-image{
+    background-image: url('images/system.jpeg');
+    background-size: cover;
 }

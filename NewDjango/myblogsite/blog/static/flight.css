@@ -1,0 +1,43 @@
+
+        /* Add styles for the star rating */
+        .star {  
+            font-size: 20px;
+            color: #ccc; /* Default color */
+            cursor: pointer; /* Change cursor to pointer */
+        }
+ 
+        .star.hover,
+        .star.selected {
+            color: #FFD700; /* Color when hovered or selected */
+        }
+ 
+        /* Styles for error and success messages */
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+            margin-bottom: 10px;
+        }
+ 
+        .success {
+            color: green;
+            font-size: 16px;
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Style for available flights */
+        .available-flights {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px; /* Space between flights and feedback form */
+        }
+
+        /* Additional styles for flight list */
+        .flight {
+            margin-bottom: 10px;
+        }

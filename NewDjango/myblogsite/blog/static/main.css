@@ -7,28 +7,13 @@ body {
     font-family: 'Arial', sans-serif;
     text-align: center;
 }
-/* nav {
-    background-color: #3494dd;
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 20px;
-    font-size: 18px;
-    font-weight: bold;
-}
-nav a:hover {
-    color: #000000;
-} */
-.hero-section {
-    
-    background-image: url('images/worldmapblue.jpg');
+
+.home-bg {
+    background-image: url('images/worldmaphome.jpg');
     background-size: cover;
+}
+
+.hero-section {
     
     height: 80vh;
     display: flex;
@@ -94,7 +79,6 @@ section h2 {
     margin-bottom: 20px;
 }
 footer {
-    
     background-color: #333;
     padding: 40px;
     color: white;

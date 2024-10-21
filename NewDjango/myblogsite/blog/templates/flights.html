@@ -1,55 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Form</title>
-    <style>
-        /* Add styles for the star rating */
-        .star {  
-            font-size: 20px;
-            color: #ccc; /* Default color */
-            cursor: pointer; /* Change cursor to pointer */
-        }
- 
-        .star.hover,
-        .star.selected {
-            color: #FFD700; /* Color when hovered or selected */
-        }
- 
-        /* Styles for error and success messages */
-        .error {
-            color: red;
-            font-size: 14px;
-            display: none;
-            margin-bottom: 10px;
-        }
- 
-        .success {
-            color: green;
-            font-size: 16px;
-            display: none;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        /* Style for available flights */
-        .available-flights {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            width: 400px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-bottom: 20px; /* Space between flights and feedback form */
-        }
-
-        /* Additional styles for flight list */
-        .flight {
-            margin-bottom: 10px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static  'navbar.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static  'main.css' %}"> 
+        <link rel="stylesheet" type="text/css" href="{% static  'flight.css' %}"> 
+    <title>FLIGHT</title>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #E5E5E5; display: flex; justify-content: center; align-items: center; flex-direction: column; height: auto; padding: 20px;">
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'flights' %}" style="color: #000;">View Flights</a>
+        <a href="{% url 'info' %}">Information</a>
+        <a href="{% url 'checkin' %}">Check In</a>
+        <a href="{% url 'booking' %}">Booking</a>
+        <a href="{% url 'contact' %}">Customer Support</a>
+        <a href="{% url 'signup' %}">Sign up</a>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </nav>
+
+<body>
  
     <!-- Available Flights Section -->
     <div class="available-flights">
@@ -172,5 +146,9 @@
             }
         });
     </script>
+    <footer>
+        <p>&copy; 2024 Airline Company. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>
