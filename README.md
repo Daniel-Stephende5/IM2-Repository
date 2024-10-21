@@ -18,7 +18,7 @@ Members:
 
 LINKS:
 
-[UI/UX_DESIGN](https://www.figma.com/design/0e5BfOdvtAELFK7U6jpDsq/Tripma---Flight-booking-web-app-(Community)?node-id=740-19142&node-type=canvas&t=QmWufvuFsKdPfEj8-0)
+[UI/UX_DESIGN](https://www.figma.com/design/0e5BfOdvtAELFK7U6jpDsq/Tripma---Flight-booking-web-app-(Community))
 
 [Gantt Chart ]([https://www.canva.com/design/DAGRddDRy3Y/X8VenPe8f68Lr2Fgo6eRmQ/edit](https://cebuinstituteoftechnology-my.sharepoint.com/:x:/g/personal/johngabriel_canal_cit_edu/ETiacGrSkCtCkSck4uZFe7QBDfcMZh_f4EqSKOhWrs52Pw?wdOrigin=TEAMS-MAGLEV.p2p_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1729415583052&web=1))
 
@@ -39,4 +39,6 @@ An Airplane Boarding System is a web application that allows users to manage var
 4. CHECK IN
 5. TRACKING STATUS
 6. VIEW FLIGHTS
+7. FEEDBACKFORM
+8. CUSTOMER SUPPORT
 
