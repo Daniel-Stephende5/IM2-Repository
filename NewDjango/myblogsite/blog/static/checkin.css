@@ -1,0 +1,83 @@
+/* Add styles for the star rating */
+.star {
+  font-size: 20px;
+  color: #ccc; /* Default color */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.star.hover,
+.star.selected {
+  color: #ffd700; /* Color when hovered or selected */
+}
+
+/* Styles for error and success messages */
+.error {
+  color: red;
+  font-size: 14px;
+  display: none;
+  margin-bottom: 10px;
+}
+
+.success {
+  color: green;
+  font-size: 16px;
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Layout adjustments */
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+
+    /* Center the container */
+    margin: 0 auto;           /* Horizontally center */
+    position: relative;       /* Ensure positioning context */
+    top: 240px;                 /* Push the container halfway down the viewport */
+    transform: translateY(-50%); /* Move the container up by half its height */
+}
+
+
+/* Centering everything */
+body {
+  background-color: #ffffff;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-direction: column; */
+  height: 100vh;
+}
+
+/* Styling for check-in section */
+.checkin-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.checkin-header h1 {
+  margin: 0;
+}
+
+.checkin-header p,
+.checkin-header a {
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.checkin-header a:hover {
+  text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    padding: 40px;
+    color: white;
+    text-align: center;
+    margin-top: 31px;
+}
