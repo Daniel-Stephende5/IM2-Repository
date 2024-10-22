@@ -1,0 +1,29 @@
+footer {
+    background-color: #333;
+    padding: 40px;
+    color: white;
+    text-align: center;
+    margin-top: 65px; /* Reduced margin-top */
+}
+
+
+.button-container {
+    height: 500px; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 15px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

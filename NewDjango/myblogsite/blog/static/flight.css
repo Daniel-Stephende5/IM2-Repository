@@ -41,3 +41,10 @@
         .flight {
             margin-bottom: 10px;
         }
+
+        footer {
+            background-color: #333;
+            padding: 40px;
+            color: white;
+            text-align: center;
+        }
