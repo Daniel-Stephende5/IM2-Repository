@@ -78,14 +78,14 @@ section h2 {
     color: #555;
     margin-bottom: 20px;
 }
-footer {
+/* footer {
     background-color: #333;
     padding: 40px;
     color: white;
     text-align: center;
-}
+} */
  
 .welcome{
     font-size: 40px;
-    color: black;
+    color: rgb(195, 86, 86);
 }

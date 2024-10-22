@@ -92,3 +92,10 @@ button {
     background-color: #ffcd05b4;
     color: #000000;
 }
+
+footer {
+    background-color: #333;
+    padding: 40px;
+    color: white;
+    text-align: center;
+}
