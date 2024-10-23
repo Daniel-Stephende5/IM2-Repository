@@ -16,3 +16,10 @@ class Comment(models.Model):
     
     def __str__(self):
         return f'{self.author} on {self.post.title}'
+    
+class SignUp(models.Model):
+    uname = models.CharField(max_length=20)
+    upass = models.CharField(max_length=20)
+    
+    class Meta:
+        db_table="signup"

@@ -22,15 +22,19 @@
     <a href="{% url 'logout' %}">Logout</a>
   </nav>
   <body>
+    <p>{{ message }}</p>
+
+    <!-- tu prefix on name means = template user for template  -->
+
     <div class="login-container">
       <h1>Sign Up</h1>
-      <form method="post">
+      <form name="rusername" method="post" action="../insertsignup/">
         {% csrf_token %}
         <div>
           <label for="{{ form.username.id_for_label }}">Username</label>
           <input
             type="text"
-            name="username"
+            name="tuname"
             id="{{ form.username.id_for_label }}"
             required
           />
@@ -39,12 +43,13 @@
           <label for="{{ form.password.id_for_label }}">Password</label>
           <input
             type="password"
-            name="password"
+            name="tupassword"
             id="{{ form.password.id_for_label }}"
             required
           />
         </div>
-        <button type="submit">Create Account</button>
+        {% comment %} <button type="submit">Create Account</button> {% endcomment %}
+        <input class="create-button" type="submit" name="reg" value="Create Account" >
       </form>
 
       <a href="{% url 'login' %}">Already have an account? Log in here.</a>

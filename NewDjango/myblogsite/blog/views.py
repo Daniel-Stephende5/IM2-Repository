@@ -2,6 +2,16 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from .forms import SignupForm, LoginForm  
 from .forms import ContactForm
+from .models import SignUp
+
+# the v means its a prefix of view 
+def insertsignup(request):
+    vuname = request.POST['tuname'];
+    vupass = request.POST['tupassword'];
+    us=SignUp(uname=vuname, upass=vupass);
+    us.save();
+    return render(request, 'signup.html', {'message': 'Account created successfully!'})
+
 
 # Signup View
 def signup_view(request):
@@ -79,4 +89,5 @@ def contact_view(request):
 # Logout View
 def logout_view(request):
     return render(request, 'logout.html')
+
 
