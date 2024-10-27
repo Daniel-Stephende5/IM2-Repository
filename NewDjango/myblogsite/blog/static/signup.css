@@ -3,14 +3,46 @@ body {
     background-color: #ffffff;
 }
 
+.signup-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align items to the start */
+    margin-top: 50px; /* Space above the container */
+}
+
 .login-container {
-    max-width: 400px;
-    margin: 100px auto;
+    max-width: 400px; /* Adjust max width as needed */
     padding: 20px;
-    background-color:#f2f2f2;
+    background-color: #f2f2f2;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-right: 10px; /* Reduce space between containers */
+}
+
+.info-container {
+    padding: 20px; /* Padding for aesthetics */
+    border: 1px solid #ccc; /* Light border for distinction */
+    border-radius: 8px; /* Slightly rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+    width: 300px; /* Fixed width for the info container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.info-container h2 {
+    font-size: 18px; /* Slightly larger heading */
+    margin-bottom: 10px; /* Space below heading */
+    color: #333; /* Darker color for contrast */
+}
+
+.info-container ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove padding */
+}
+
+.info-container li {
+    margin-bottom: 8px; /* Space between list items */
+    color: #555; /* Dark grey color for list items */
 }
 
 .login-container h1 {
@@ -36,7 +68,7 @@ body {
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color:#244fdc;
+    background-color: #244fdc;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -47,11 +79,11 @@ body {
     background-color: rgb(18, 80, 148);
 }
 
-.create-button{
+.create-button {
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color:#244fdc;
+    background-color: #244fdc;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -71,7 +103,6 @@ body {
 .login-container a:hover {
     text-decoration: underline;
 }
-
 
 /* Lighter placeholder color */
 input::placeholder {

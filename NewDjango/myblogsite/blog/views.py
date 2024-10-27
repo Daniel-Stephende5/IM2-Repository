@@ -3,14 +3,21 @@ from django.contrib.auth import login, authenticate, logout
 from .forms import SignupForm, LoginForm, ContactForm
 from django.contrib import messages
 
+
+
+# Signup View
 def signup_view(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
             user = form.save()  # Saves the user
             login(request, user)  # Logs in the user immediately
-            messages.success(request, 'Account created successfully!')  # Should show this message
-            return redirect('home')  # Ensure this redirects correctly
+            messages.success(request, 'Account created successfully!')
+            return redirect('home')
+        else:
+            # Print the errors to the console for debugging
+            print(form.errors)  # Add this line to see form errors in the terminal
+            messages.error(request, 'Please follow the required instructions for password')
     else:
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})

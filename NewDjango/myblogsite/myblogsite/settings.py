@@ -138,5 +138,5 @@ STATICFILES_DIR = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'NewDjango', 'myblogsite', 'blog', 'static'),
+    BASE_DIR / 'blog' / 'static',  # Use this format for relative paths
 ]
