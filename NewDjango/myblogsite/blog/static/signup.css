@@ -125,3 +125,19 @@ footer {
     text-align: center;
     margin-top: 150px;
 }
+
+
+.message-container {
+    margin: 20px auto;
+    max-width: 400px; /* Adjust as needed */
+    padding: 10px;
+    background-color: #f8d7da; /* Light red background for error messages */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb; /* Border for the message container */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center text */
+}
+
+.alert {
+    margin: 5px 0; /* Space between messages */
+}

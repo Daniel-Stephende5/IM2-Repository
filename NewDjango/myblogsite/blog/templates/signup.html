@@ -24,6 +24,14 @@
       </div>
     </nav>
 
+    {% if messages %}
+    <div class="message-container">
+      {% for message in messages %}
+      <div class="alert">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
     <div class="signup-container">
       <div class="info-container">
         <h2>Password Requirements</h2>

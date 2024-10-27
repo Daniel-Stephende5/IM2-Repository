@@ -17,14 +17,18 @@ def signup_view(request):
         else:
             # Print the errors to the console for debugging
             print(form.errors)  # Add this line to see form errors in the terminal
-            messages.error(request, 'Please follow the required instructions for password')
+            messages.error(request, 'Please follow the required instructions for password.')
     else:
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})
 
 
+
 # Login View
 def login_view(request):
+    # Clear messages from the previous request to avoid showing signup errors
+    messages.get_messages(request).used = True
+
     if request.method == 'POST':
         form = LoginForm(request, data=request.POST)
         if form.is_valid():
