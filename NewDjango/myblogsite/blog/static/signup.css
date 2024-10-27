@@ -7,7 +7,7 @@ body {
     display: flex; /* Use flexbox for layout */
     justify-content: center; /* Center horizontally */
     align-items: flex-start; /* Align items to the start */
-    margin-top: 50px; /* Space above the container */
+    margin-top: 100px; /* Space above the container */
 }
 
 .login-container {
@@ -123,5 +123,5 @@ footer {
     padding: 40px;
     color: white;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 150px;
 }
