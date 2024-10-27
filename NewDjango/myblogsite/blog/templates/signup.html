@@ -1,59 +1,73 @@
-{%load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="{% static  'main.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static  'signup.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}" />
-
     <title>Sign Up</title>
   </head>
-  <nav>
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'flights' %}">View Flights</a>
-    <a href="{% url 'info' %}">Information</a>
-    <a href="{% url 'checkin' %}">Check In</a>
-    <a href="{% url 'booking' %}">Booking</a>
-    <a href="{% url 'contact' %}">Customer Support</a>
-    <a href="{% url 'signup' %}" style="color: #000">Sign up</a>
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'logout' %}">Logout</a>
-  </nav>
   <body>
-    <p>{{ message }}</p>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'flights' %}">View Flights</a>
+      <a href="{% url 'info' %}">Information</a>
+      <a href="{% url 'checkin' %}">Check In</a>
+      <a href="{% url 'booking' %}">Booking</a>
+      <a href="{% url 'contact' %}">Customer Support</a>
+      <a href="{% url 'signup' %}" style="color: #000">Sign up</a>
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'logout' %}">Logout</a>
+    </nav>
 
-    <!-- tu prefix on name means = template user for template  -->
+    {% if messages %}
+    <div class="message-container">
+      {% for message in messages %}
+      <div class="alert">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
 
     <div class="login-container">
       <h1>Sign Up</h1>
-      <form name="rusername" method="post" action="../insertsignup/">
+      <form method="post" action="{% url 'signup' %}">
         {% csrf_token %}
         <div>
           <label for="{{ form.username.id_for_label }}">Username</label>
           <input
             type="text"
-            name="tuname"
+            name="username"
             id="{{ form.username.id_for_label }}"
             required
           />
         </div>
         <div>
-          <label for="{{ form.password.id_for_label }}">Password</label>
+          <label for="{{ form.password1.id_for_label }}">Password</label>
           <input
             type="password"
-            name="tupassword"
-            id="{{ form.password.id_for_label }}"
+            name="password1"
+            id="{{ form.password1.id_for_label }}"
             required
           />
         </div>
-        {% comment %} <button type="submit">Create Account</button> {% endcomment %}
-        <input class="create-button" type="submit" name="reg" value="Create Account" >
+        <div>
+          <label for="{{ form.password2.id_for_label }}"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            name="password2"
+            id="{{ form.password2.id_for_label }}"
+            required
+          />
+        </div>
+        <input class="create-button" type="submit" value="Create Account" />
       </form>
-
       <a href="{% url 'login' %}">Already have an account? Log in here.</a>
     </div>
+
     <footer>
       <p>&copy; 2024 Airline Company. All rights reserved.</p>
     </footer>
