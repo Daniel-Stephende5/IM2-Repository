@@ -23,6 +23,14 @@
       <a href="{% url 'logout' %}">Logout</a>
     </nav>
 
+    {% if messages %}
+    <div class="message-container">
+      {% for message in messages %}
+      <div class="alert">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
     <!-- Hero Section -->
     <div class="hero-section home-bg">
       <div>

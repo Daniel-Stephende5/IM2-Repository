@@ -53,8 +53,8 @@ def logout_view(request):
 
 # Home View
 def home_view(request):
-    return render(request, 'home.html')
-
+    messages_list = messages.get_messages(request)
+    return render(request, 'home.html', {'messages': messages_list})
 # Flights View
 def flights_view(request):
     flights_data = [
