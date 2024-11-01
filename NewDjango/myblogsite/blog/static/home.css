@@ -7,7 +7,7 @@ footer {
 
 .message-container {
     position: fixed;
-    top: 20px;
+    top: 70px;
     left: 70%;
     transform: translateX(-50%);
     width: 90%;
