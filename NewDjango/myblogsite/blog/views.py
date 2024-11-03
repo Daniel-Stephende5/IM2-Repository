@@ -84,7 +84,7 @@ def checkin_view(request):
 # Booking View
 def booking_view(request):
     if request.user.is_authenticated:
-        return render(request, 'booking.html')  # Ensure you create booking.html
+        return render(request, 'bookinglogin.html')  # Ensure you create booking.html
     else:
         return render(request, 'booking.html')
 # Contact View
