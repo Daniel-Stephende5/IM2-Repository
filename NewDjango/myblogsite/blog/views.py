@@ -4,7 +4,6 @@ from .forms import SignupForm, LoginForm, ContactForm
 from django.contrib import messages
  
  
- 
 # Signup View
 def signup_view(request):
     if request.method == 'POST':
@@ -21,7 +20,6 @@ def signup_view(request):
     else:
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})
- 
  
  
 # Login View
@@ -53,7 +51,10 @@ def logout_view(request):
  
 # Home View
 def home_view(request):
-    return render(request, 'homelogin.html')
+    if request.user.is_authenticated:
+        return render(request, 'homelogin.html')
+    else:
+        return render(request, 'home.html')
  
 # Flights View
 def flights_view(request):
