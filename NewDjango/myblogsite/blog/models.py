@@ -16,11 +16,72 @@ class Comment(models.Model):
     
     def __str__(self):
         return f'{self.author} on {self.post.title}'
+    
+    
+class Login(models.Model):
+    username = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
+    email = models.EmailField()
 
-# Removed SignUp model as it's not necessary when using User model
-# class SignUp(models.Model):
-#     uname = models.CharField(max_length=20)
-#     upass = models.CharField(max_length=20)
-#     
-#     class Meta:
-#         db_table="signup"
+    def __str__(self):
+        return self.username
+
+class Booking(models.Model):
+    login = models.ForeignKey(Login, on_delete=models.CASCADE)  # One Mandatory to Many Optional (Login to Bookings)
+    flight = models.ForeignKey('Flight', on_delete=models.CASCADE)  # Many Mandatory to One Mandatory (Bookings to Flights)
+    date = models.DateTimeField()
+    seat_number = models.CharField(max_length=10)
+
+    def __str__(self):
+        return f'Booking by {self.login.username} on {self.date}'
+
+class CustomerSupport(models.Model):
+    login = models.ForeignKey(Login, on_delete=models.SET_NULL, null=True)  # Optional Many to One (CustomerSupport to Login)
+    inquiry = models.TextField()
+    response = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f'Inquiry by {self.login.username if self.login else "Guest"}'
+
+class FeedbackForm(models.Model):
+    login = models.ForeignKey(Login, on_delete=models.CASCADE)  # One to Many (Login to FeedbackForm)
+    feedback = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Feedback by {self.login.username}'
+
+class CheckIn(models.Model):
+    login = models.ForeignKey(Login, on_delete=models.CASCADE)  # One Mandatory to Many Mandatory (Login to CheckIn)
+    status = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f'CheckIn for {self.login.username} - Status: {self.status}'
+
+class User(models.Model):
+    username = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.username
+
+class Flight(models.Model):
+    flight_number = models.CharField(max_length=50)
+    destination = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.flight_number
+
+class Logout(models.Model):
+    login = models.OneToOneField(Login, on_delete=models.CASCADE)  # One-to-One (Login to Logout)
+    logout_time = models.DateTimeField()
+
+    def __str__(self):
+        return f'Logout for {self.login.username} at {self.logout_time}'
+
+class Signup(models.Model):
+    login = models.ForeignKey(Login, on_delete=models.CASCADE)  # Many to One (Login to Signup)
+    signup_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Signup for {self.login.username} on {self.signup_date}'
+
