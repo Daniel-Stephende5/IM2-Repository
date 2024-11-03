@@ -13,10 +13,10 @@ def signup_view(request):
             user = form.save()  # Saves the user
             login(request, user)  # Logs in the user immediately
             messages.success(request, 'Account created successfully!')
-            return redirect('home')
+            return redirect('home')  # Redirect to home after signup
         else:
-            # Print the errors to the console for debugging
-            print(form.errors)  # Add this line to see form errors in the terminal
+            # Log form errors to the console for debugging
+            print(form.errors)
             messages.error(request, 'Please follow the required instructions for password.')
     else:
         form = SignupForm()

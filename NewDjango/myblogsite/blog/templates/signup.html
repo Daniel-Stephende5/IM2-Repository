@@ -32,19 +32,6 @@
     {% endif %}
 
     <div class="signup-container">
-      <div class="info-container">
-        <h2>Password Requirements</h2>
-        <ul>
-          <li>At least 12 characters long</li>
-          <li>Include both uppercase and lowercase letters</li>
-          <li>Contain at least one number</li>
-          <li>Have at least one special character (e.g., @, #, $, %, etc.)</li>
-          <li>
-            Should not be easily guessable (avoid common words and phrases)
-          </li>
-        </ul>
-      </div>
-
       <div class="login-container">
         <h1>Create Account</h1>
         <form method="POST" action="{% url 'signup' %}">

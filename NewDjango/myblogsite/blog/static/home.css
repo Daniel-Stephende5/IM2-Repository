@@ -6,10 +6,10 @@ footer {
 }
 
 .message-container {
-    position: fixed;
-    top: 70px;
-    left: 70%;
-    transform: translateX(-50%);
+    position: fixed; /* Keep it fixed to the viewport */
+    top: 6%; /* Move it to the vertical center */
+    left: 50%; /* Move it to the horizontal center */
+    transform: translate(-50%, -50%); /* Adjust position to center it */
     width: 90%;
     max-width: 400px;
     padding: 10px;
@@ -19,8 +19,9 @@ footer {
     border-radius: 5px;
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 1000; /* Ensure it's on top of other elements */
 }
+
 
 
 .alert {

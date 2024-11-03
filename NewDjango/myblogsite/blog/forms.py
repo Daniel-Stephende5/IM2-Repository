@@ -13,8 +13,9 @@ class SignupForm(UserCreationForm):
         password1 = cleaned_data.get("password1")
         password2 = cleaned_data.get("password2")
 
-        if password1 and password2 and password1 != password2:
-            raise forms.ValidationError("Passwords do not match.")
+        # Remove password matching check or any custom logic
+        # This method can remain empty or just call super() if you don't need additional logic
+        return cleaned_data
 
 # Login Form
 class LoginForm(AuthenticationForm):
