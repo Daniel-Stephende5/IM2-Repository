@@ -8,10 +8,10 @@
     <link rel="stylesheet" type="text/css" href="{% static  'navbar.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static  'info.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static  'booking.css' %}" />
-
+ 
     <title>INFORMATION</title>
   </head>
-
+ 
   <!-- Navigation Bar -->
   <nav>
     <a href="{% url 'home' %}">Home</a>
@@ -20,10 +20,9 @@
     <a href="{% url 'checkin' %}">Check In</a>
     <a href="{% url 'booking' %}"style="color: #000">Booking</a>
     <a href="{% url 'contact' %}">Customer Support</a>
-    <a href="{% url 'signup' %}">Sign up</a>
-    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'logout' %}">Logout</a>
   </nav>
-
+ 
     <div class="hero-section">
       <div>
         <h1>Book A Flight</h1>
@@ -35,7 +34,7 @@
             name="fromCity"
             placeholder="Enter departure city"
           />
-
+ 
           <label for="toCity">To City:</label>
           <input
             type="text"
@@ -43,7 +42,7 @@
             name="toCity"
             placeholder="Enter destination city"
           />
-
+ 
           <label for="departureDate">Departure Date:</label>
           <input
             type="date"
@@ -51,7 +50,7 @@
             name="departureDate"
             placeholder="Select departure date"
           />
-
+ 
           <label for="returnDate">Return Date:</label>
           <input
             type="date"
@@ -59,7 +58,7 @@
             name="returnDate"
             placeholder="Select return date"
           />
-
+ 
           <label for="passengers">Passengers:</label>
           <input
             type="number"
@@ -68,7 +67,7 @@
             min="1"
             placeholder="Number of passengers"
           />
-
+ 
           <label for="email">Email:</label>
           <input
             type="email"
@@ -76,14 +75,14 @@
             name="email"
             placeholder="Enter your email address"
           />
-
+ 
           <div class="submit-container">
             <input id="continue" type="submit" value="Continue" />
           </div>
         </form>
       </div>
     </div>
-
+ 
     <footer>
       <p>&copy; 2024 Airline Company. All rights reserved.</p>
     </footer>

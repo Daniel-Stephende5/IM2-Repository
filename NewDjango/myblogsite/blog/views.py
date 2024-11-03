@@ -63,35 +63,50 @@ def flights_view(request):
         {"flight_number": "BA456", "destination": "London", "departure": "1:00 PM"},
         {"flight_number": "CA789", "destination": "Tokyo", "departure": "3:30 PM"},
     ]
-    return render(request, 'flights.html', {'flights': flights_data})
+    if request.user.is_authenticated:
+        return render(request, 'flightslogin.html', {'flights': flights_data})
+    else:
+        return render(request, 'flights.html', {'flights': flights_data})
  
 # Info View
 def info_view(request):
-    return render(request, 'info.html')  # Ensure you create info.html
- 
+    if request.user.is_authenticated:
+        return render(request, 'infologin.html')  # Ensure you create info.html
+    else:
+        return render(request, 'info.html')
+
 # Check-In View
 def checkin_view(request):
-    return render(request, 'checkin.html')  # Ensure you create checkin.html
- 
+    if request.user.is_authenticated:
+        return render(request, 'checkinlogin.html')  # Ensure you create checkin.html
+    else:
+        return render(request, 'checkin.html')
 # Booking View
 def booking_view(request):
-    return render(request, 'booking.html')  # Ensure you create booking.html
- 
+    if request.user.is_authenticated:
+        return render(request, 'booking.html')  # Ensure you create booking.html
+    else:
+        return render(request, 'booking.html')
 # Contact View
 def contact_view(request):
-    form = ContactForm()
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            # Process the form data (you could save it to the database or send an email)
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            email = form.cleaned_data['email']
-            phone = form.cleaned_data['phone']
-            subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message']
+#     form = ContactForm()
+#     if request.method == 'POST':
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+    #         # Process the form data (you could save it to the database or send an email)
+    #         first_name = form.cleaned_data['first_name']
+    #         last_name = form.cleaned_data['last_name']
+    #         email = form.cleaned_data['email']
+    #         phone = form.cleaned_data['phone']
+    #         subject = form.cleaned_data['subject']
+    #         message = form.cleaned_data['message']
  
-            # For now, just render the form with a success message
-            messages.success(request, 'Your message has been sent successfully!')  # Success message
-            return render(request, 'customersupport.html', {'form': ContactForm(), 'success': True})
-    return render(request, 'customersupport.html', {'form': form})
+    #         # For now, just render the form with a success message
+    #         messages.success(request, 'Your message has been sent successfully!')  # Success message
+    #         return render(request, 'customersupport.html', {'form': ContactForm(), 'success': True})
+    # return render(request, 'customersupport.html', {'form': form})
+
+    if request.user.is_authenticated:
+        return render(request, 'customersupportlogin.html')  # Ensure you create booking.html
+    else:
+        return render(request, 'customersupport.html')
