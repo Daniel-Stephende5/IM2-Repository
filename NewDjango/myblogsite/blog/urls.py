@@ -11,6 +11,4 @@ urlpatterns = [
     path('booking/', views.booking_view, name='booking'),
     path('logout/', views.logout_view, name='logout'),
     path('contact/', views.contact_view, name='contact'),
-    # Ensure you actually have this function in views.py
-    # path('insertsignup/', views.insertsignup, name='insertsignup'),  
 ]

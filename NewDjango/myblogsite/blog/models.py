@@ -1,5 +1,7 @@
 from django.db import models
- 
+from django.contrib.auth.models import User
+
+# Base Post and Comment models for blog-like structure
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
@@ -7,7 +9,7 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
-    
+
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     text = models.TextField()
@@ -16,8 +18,8 @@ class Comment(models.Model):
     
     def __str__(self):
         return f'{self.author} on {self.post.title}'
-    
-    
+
+# Login model for user accounts with email field
 class Login(models.Model):
     username = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
@@ -26,44 +28,50 @@ class Login(models.Model):
     def __str__(self):
         return self.username
 
+# Booking model to handle user bookings with relationships
 class Booking(models.Model):
-    login = models.ForeignKey(Login, on_delete=models.CASCADE)  # One Mandatory to Many Optional (Login to Bookings)
-    flight = models.ForeignKey('Flight', on_delete=models.CASCADE)  # Many Mandatory to One Mandatory (Bookings to Flights)
+    login = models.ForeignKey(Login, on_delete=models.CASCADE)
+    flight = models.ForeignKey('Flight', on_delete=models.CASCADE)
     date = models.DateTimeField()
     seat_number = models.CharField(max_length=10)
 
     def __str__(self):
         return f'Booking by {self.login.username} on {self.date}'
 
+# Customer Support model for handling user inquiries
 class CustomerSupport(models.Model):
-    login = models.ForeignKey(Login, on_delete=models.SET_NULL, null=True)  # Optional Many to One (CustomerSupport to Login)
+    login = models.ForeignKey(Login, on_delete=models.SET_NULL, null=True)
     inquiry = models.TextField()
     response = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f'Inquiry by {self.login.username if self.login else "Guest"}'
 
+# Feedback model to store user feedback
 class FeedbackForm(models.Model):
-    login = models.ForeignKey(Login, on_delete=models.CASCADE)  # One to Many (Login to FeedbackForm)
+    login = models.ForeignKey(Login, on_delete=models.CASCADE)
     feedback = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'Feedback by {self.login.username}'
 
+# CheckIn model for user check-in statuses
 class CheckIn(models.Model):
-    login = models.ForeignKey(Login, on_delete=models.CASCADE)  # One Mandatory to Many Mandatory (Login to CheckIn)
+    login = models.ForeignKey(Login, on_delete=models.CASCADE)
     status = models.CharField(max_length=50)
 
     def __str__(self):
         return f'CheckIn for {self.login.username} - Status: {self.status}'
 
+# User model for simplicity in some parts of the project
 class User(models.Model):
     username = models.CharField(max_length=50)
 
     def __str__(self):
         return self.username
 
+# Flight model to represent flight details
 class Flight(models.Model):
     flight_number = models.CharField(max_length=50)
     destination = models.CharField(max_length=100)
@@ -71,17 +79,18 @@ class Flight(models.Model):
     def __str__(self):
         return self.flight_number
 
+# Logout model to log when users log out
 class Logout(models.Model):
-    login = models.OneToOneField(Login, on_delete=models.CASCADE)  # One-to-One (Login to Logout)
+    login = models.OneToOneField(Login, on_delete=models.CASCADE)
     logout_time = models.DateTimeField()
 
     def __str__(self):
         return f'Logout for {self.login.username} at {self.logout_time}'
 
+# Signup model to keep track of user signup dates
 class Signup(models.Model):
-    login = models.ForeignKey(Login, on_delete=models.CASCADE)  # Many to One (Login to Signup)
+    login = models.ForeignKey(Login, on_delete=models.CASCADE)
     signup_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'Signup for {self.login.username} on {self.signup_date}'
-
