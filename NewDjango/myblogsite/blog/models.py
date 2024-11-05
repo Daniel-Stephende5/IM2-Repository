@@ -85,3 +85,19 @@ class Signup(models.Model):
     def __str__(self):
         return f'Signup for {self.login.username} on {self.signup_date}'
 
+class CustomerLog(models.Model):
+    SUBJECT_CHOICES = [
+        ('general', 'General Inquiry'),
+        ('support', 'Support'),
+        ('sales', 'Sales'),
+        ('other', 'Other'),
+    ]
+
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    subject = models.CharField(max_length=20, choices=SUBJECT_CHOICES)
+    message = models.TextField()
+    # Automatically sets the time when a log is created
+
+    def __str__(self):
+        return f"{self.email} - {self.subject}"

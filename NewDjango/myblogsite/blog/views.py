@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from .forms import SignupForm, LoginForm, ContactForm
+from .forms import ContactForm
 from django.contrib import messages
- 
+from .models import CustomerLog
+
  
 # Signup View
 def signup_view(request):
@@ -89,24 +91,27 @@ def booking_view(request):
         return render(request, 'booking.html')
 # Contact View
 def contact_view(request):
-#     form = ContactForm()
-#     if request.method == 'POST':
-#         form = ContactForm(request.POST)
-#         if form.is_valid():
-    #         # Process the form data (you could save it to the database or send an email)
-    #         first_name = form.cleaned_data['first_name']
-    #         last_name = form.cleaned_data['last_name']
-    #         email = form.cleaned_data['email']
-    #         phone = form.cleaned_data['phone']
-    #         subject = form.cleaned_data['subject']
-    #         message = form.cleaned_data['message']
- 
-    #         # For now, just render the form with a success message
-    #         messages.success(request, 'Your message has been sent successfully!')  # Success message
-    #         return render(request, 'customersupport.html', {'form': ContactForm(), 'success': True})
-    # return render(request, 'customersupport.html', {'form': form})
 
-    if request.user.is_authenticated:
-        return render(request, 'customersupportlogin.html')  # Ensure you create booking.html
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Process the form data (you could save it to the database or send an email)
+            CustomerLog.objects.create(
+                email=form.cleaned_data['email'],
+                phone=form.cleaned_data['phone'],
+                subject=form.cleaned_data['subject'],
+                message=form.cleaned_data['message']
+            )
+            success=True
+            # For now, just render the form with a success message
+            return render(request, 'customersupport.html', {'form': CustomerLogForm(), 'success': success})
+     
     else:
-        return render(request, 'customersupport.html')
+        form = CustomerLogForm()
+    return render(request, 'customersupport.html', {'form': form})
+
+
+
+def customer_logs_view(request):
+    logs = CustomerLog.objects.all()
+    return render(request,'customerlogs.html',  {'logs': logs})

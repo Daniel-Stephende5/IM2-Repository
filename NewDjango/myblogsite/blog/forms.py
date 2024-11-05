@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from .models import CustomerLog
 
 # Signup Form
 class SignupForm(UserCreationForm):
@@ -24,9 +25,16 @@ class LoginForm(AuthenticationForm):
 
 # Contact Form
 class ContactForm(forms.Form):
-    first_name = forms.CharField(max_length=100)
-    last_name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    phone = forms.CharField(max_length=15, required=False)
-    subject = forms.ChoiceField(choices=[('general1', 'General Inquiry'), ('general2', 'General Inquiry'), ('general3', 'General Inquiry')])
+    
+    email = forms.EmailField(required=True)
+    phone = forms.CharField(max_length=15, required=True)
+    subject = forms.ChoiceField(choices=[ ('general', 'General Inquiry'),
+    ('support', 'Support'),
+    ('sales', 'Sales'),
+    ('other', 'Other'),],required=True)
     message = forms.CharField(widget=forms.Textarea)
+
+class CustomerLogForm(forms.ModelForm):
+    class Meta:
+        model = CustomerLog
+        fields = ['email', 'phone', 'subject', 'message']
