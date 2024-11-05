@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Booking
+from .models import CustomerLog
+ 
 
 class SignupForm(UserCreationForm):
     class Meta:
@@ -30,3 +32,8 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ['flight', 'date', 'seat_number']
+
+class CustomerLogForm(forms.ModelForm):
+    class Meta:
+        model = CustomerLog
+        fields = ['email', 'phone', 'subject', 'message']

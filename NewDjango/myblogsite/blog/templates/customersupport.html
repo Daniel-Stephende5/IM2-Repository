@@ -22,103 +22,35 @@
       <a href="{% url 'signup' %}">Sign up</a>
       <a href="{% url 'login' %}">Login</a>
     </nav>
-
+ 
     <!-- Contact Form Section -->
     <div class="container">
       <div class="left-side">
-        <h2>Contact Information</h2>
-        <p>Say something to start a live chat!</p>
-        <ul>
-          <li><i class="fas fa-phone-alt"></i>Phone: +1234 456 789</li>
-          <li><i class="fas fa-envelope"></i>Email: info@citu.com</li>
-          <li>
-            <i class="fas fa-map-marker-alt"></i>Address: 17VVJ+QFR, Natalio B.
-            Bacalso Ave, Cebu City, 6000 Cebu
-          </li>
-        </ul>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
+        <!-- Contact Information Section... -->
       </div>
-
+ 
       <div class="right-side">
-        <h2>Contact Us</h2>
+        <!-- Display messages -->
+        {% if messages %}
+        <div class="message-container">
+          {% for message in messages %}
+          <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+            {{ message }}
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+ 
+        <h2>Contact Us (.html)</h2>
         <p>Any question or remarks? Just write us a message!</p>
-        <form action="#">
-          <!-- Form Fields -->
-          <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" required />
-          </div>
-          <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required />
-          </div>
-
-          <!-- Select Subject Radio Group -->
-          <div class="form-group">
-            <label for="subject">Select Subject?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input
-                  type="radio"
-                  id="subject1"
-                  name="subject"
-                  value="general"
-                  checked
-                />
-                <label for="subject1">General Inquiry</label>
-              </div>
-              <div class="radio-item">
-                <input
-                  type="radio"
-                  id="subject2"
-                  name="subject"
-                  value="support"
-                />
-                <label for="subject2">Support</label>
-              </div>
-              <div class="radio-item">
-                <input
-                  type="radio"
-                  id="subject3"
-                  name="subject"
-                  value="sales"
-                />
-                <label for="subject3">Sales</label>
-              </div>
-              <div class="radio-item">
-                <input
-                  type="radio"
-                  id="subject4"
-                  name="subject"
-                  value="other"
-                />
-                <label for="subject4">Other</label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Message Field -->
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-          </div>
-
-          <!-- Submit Button -->
+        <form action="{% url 'contact' %}" method="post">
+          {% csrf_token %} {{ form.as_p }}
+          <!-- This will render form fields with labels, errors, and inputs -->
           <button type="submit" class="submit-btn">Send Message</button>
         </form>
       </div>
     </div>
+ 
     <footer>
       <p>&copy; 2024 Airline Company. All rights reserved.</p>
     </footer>
