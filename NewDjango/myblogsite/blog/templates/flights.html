@@ -73,14 +73,15 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="flights.html" class="active">View Flights</a></li>
-                      <li><a href="booking.html" >Booking</a></li>
-                      <li><a href="checkin.html">Check In</a></li>
-                      <li><a href="info.html">Information</a></li>
-                      <li><a href="contact.html" >Customer Support</a></li>
-                      <li><a href="signup.html" >Sign Up</a></li>
-                      <li><a href="login.html"><i class="fa fa-calendar"></i> Login</a></li>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'flights' %}" class="active">View Flights</a></li>
+                        <li><a href="{% url 'booking' %}">Booking</a></li>
+                        <li><a href="{% url 'checkin' %}">Check In</a></li>
+                        <li><a href="{% url 'info' %}">Information</a></li>
+                        <li><a href="{% url 'contact' %}">Customer Support</a></li>
+                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                        <li><a href="{% url 'login' %}"><i class="fa fa-calendar"></i> Login</a></li>
+                        
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
