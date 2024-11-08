@@ -1,171 +1,308 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static  'main.css' %}"> 
-    <link rel="stylesheet" type="text/css" href="{% static  'flight.css' %}"> 
-    <link rel="stylesheet" type="text/css" href="{% static  'navbar.css' %}"> 
-    <title>Feedback Form with Images</title>
-   
-</head>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>View Flights</title>
+
+    <!-- Bootstrap core CSS -->
+    {% comment %} <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> {% endcomment %}
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-villa-agency.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+  </head>
+
 <body>
-    <nav>
-        <div class="navbar-links">
-            <a href="{% url 'home' %}" >Home</a>
-            <a href="{% url 'flights' %}" style="color: #000;">View Flights</a>
-            <a href="{% url 'info' %}">Information</a>
-            <a href="{% url 'checkin' %}">Check In</a>
-            <a href="{% url 'booking' %}">Booking</a>
-            <a href="#contact-section">Customer Support</a>
-            <a href="{% url 'signup' %}">Sign up</a>
-            <a href="{% url 'login' %}">Login</a>
-            
-            
-        </div>
-    </nav>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <div class="sub-header">
     <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <ul class="info">
+            <li><i class="fa fa-envelope"></i> JoeMarie@citedu.com</li>
+            <li><i class="fa fa-map"></i>  7VVJ+QFR, Natalio B. Bacalso Ave, Cebu City, 6000 Cebu</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <ul class="social-links">
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- Available Flights Section -->
-        <div class="available-flights">
-            <h2 style="text-align: center; color: #333;">Available Flights</h2>
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <h1>FlightMatch</h1>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="flights.html" class="active">View Flights</a></li>
+                      <li><a href="booking.html" >Booking</a></li>
+                      <li><a href="checkin.html">Check In</a></li>
+                      <li><a href="info.html">Information</a></li>
+                      <li><a href="contact.html" >Customer Support</a></li>
+                      <li><a href="signup.html" >Sign Up</a></li>
+                      <li><a href="login.html"><i class="fa fa-calendar"></i> Login</a></li>
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
 
-            <!-- Image Card 1 -->
-            <div class="flight-card">
-                <img src="{% static 'images/shanghai.jpg' %}" alt="Flight to Shanghai">
-                <h3>The Bund, Shanghai</h3>
-                <p>$500</p>
-            </div>
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>View Flights</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            <!-- Image Card 2 -->
-            <div class="flight-card">
-                <img src="{% static 'images/Sydney.jpg' %}" alt="Flight to Sydney">
-                <h3>Sydney Opera House</h3>
-                <p>$600</p>
-            </div>
+  <div class="section properties">
+    <div class="container">
+      <ul class="properties-filter">
+        <li>
+          <a class="is_active" href="#!" data-filter="*">Show All</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".adv">Europe</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".str">Asia</a>
+        </li>
+      </ul>
+      <div class="row properties-box">
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv">
+          <div class="item">
+            <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-01.jpg' %}" alt=""></a>
+            
 
-            <!-- Image Card 3 -->
-            <div class="flight-card">
-                <img src="{% static 'images/japan.jpg' %}" alt="Flight to Kyoto">
-                <h3>Kinkaku-ji Temple, Kyoto</h3>
-                <p>$450</p>
-            </div>
-            <div class="flight-card">
-                <img src="{% static 'images/taipei.webp' %}" alt="Flight to Taiwan">
-                <h3>Taipei City, Taiwan</h3>
-                <p>$450</p>
-            </div>
-            <div class="flight-card">
-                <img src="{% static 'images/TajMahal.jpeg' %}" alt="Flight to India">
-                <h3>Taj Mahal, India</h3>
-                <p>$450</p>
-            </div>
-            <div class="flight-card">
-                <img src="{% static 'images/Kuala.jpg' %}" alt="Flight to Malaysia">
-                <h3>Kuala Lumpur Malaysia</h3>
-                <p>$450</p>
-            </div>
 
+            <span class="category">Paris, France</span>
+            <h6>$2.264.000</h6>
+            <h4><a href="booking.html">Flight Details</a></h4>
+            <ul>
+              <li>Height: <span>8m</span></li>
+              <li>Width: <span>8</span></li>
+              <li>Area: <span>545m2</span></li>
+              <li>Class: <span></span>First</li>
+              <li>Gate Level: <span></span>6</li>
+            </ul>
+            <div class="main-button">
+              <a href="booking.html">Book Flight</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 str">
+          <div class="item">
+            <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-05.jpg' %}" alt=""></a>
+
+            <span class="category">Tokyo, Japan</span>
+            <h6>$1.180.000</h6>
+            <h4><a href="booking.html">Flight Details</a></h4>
+            <ul>
+              <li>Height: <span>8m</span></li>
+              <li>Width: <span>8</span></li>
+              <li>Area: <span>545m2</span></li>
+              <li>Class: <span></span>First</li>
+              <li>Gate Level: <span></span>6</li>
+            </ul>
+            <div class="main-button">
+              <a href="booking.html">Book Flight</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv rac">
+          <div class="item">
+            <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-02.jpg' %}" alt=""></a>
+
+            <span class="category">Bruges ,Belgium</span>
+            <h6>$1.460.000</h6>
+            <h4><a href="booking.html">Flight Details</a></h4>
+            <ul>
+              <li>Height: <span>8m</span></li>
+              <li>Width: <span>8</span></li>
+              <li>Area: <span>545m2</span></li>
+              <li>Class: <span></span>First</li>
+              <li>Gate Level: <span></span>6</li>
+            </ul>
+            <div class="main-button">
+              <a href="booking.html">Book Flight</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 str">
+          <div class="item">
+            <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-08.jpg' %}" alt=""></a>
+            
+
+            <span class="category">Cebu, Philipines</span>
+            <h6>$584.500</h6>
+            <h4><a href="booking.html">Flight Details</a></h4>
+            <ul>
+              <li>Height: <span>8m</span></li>
+              <li>Width: <span>8</span></li>
+              <li>Area: <span>545m2</span></li>
+              <li>Class: <span></span>First</li>
+              <li>Gate Level: <span></span>6</li>
+            </ul>
+            <div class="main-button">
+              <a href="booking.html">Book Flight</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac str">
+          <div class="item">
+            <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-07.jpg' %}" alt=""></a>
+
+            <span class="category">Shanghai, China</span>
+            <h6>$925.600</h6>
+            <h4><a href="booking.html">Flight Details</a></h4>
+            <ul>
+              <li>Height: <span>8m</span></li>
+              <li>Width: <span>8</span></li>
+              <li>Area: <span>545m2</span></li>
+              <li>Class: <span></span>First</li>
+              <li>Gate Level: <span></span>6</li>
+            </ul>
+            <div class="main-button">
+              <a href="booking.html">Book Flight</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac adv">
+          <div class="item">
+            <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-03.jpg' %}" alt=""></a>
+
+            <span class="category">Tirol, Austria</span>
+            <h6>$450.000</h6>
+            <h4><a href="booking.html">Flight Details</a></h4>
+            <ul>
+              <li>Height: <span>8m</span></li>
+              <li>Width: <span>8</span></li>
+              <li>Area: <span>545m2</span></li>
+              <li>Class: <span></span>First</li>
+              <li>Gate Level: <span></span>6</li>
+            </ul>
+            <div class="main-button">
+              <a href="booking.html">Book Flight</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac str">
+          <div class="item">
+            <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-03.jpg' %}" alt=""></a>
+
+            <span class="category">Luxury Villa</span>
+            <h6>$980.000</h6>
+            <h4><a href="booking.html">Flight Details</a></h4>
+            <ul>
+              <li>Height: <span>8m</span></li>
+              <li>Width: <span>8</span></li>
+              <li>Area: <span>545m2</span></li>
+              <li>Class: <span></span>First</li>
+              <li>Gate Level: <span></span>6</li>
+            </ul>
+            <div class="main-button">
+              <a href="booking.html">Book Flight</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac adv">
+          <div class="item">
+            <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-04.jpg' %}" alt=""></a>
+
+            <span class="category">York, England</span>
+            <h6>$1.520.000</h6>
+            <h4><a href="booking.html">Flight Details</a></h4>
+            <ul>
+              <li>Height: <span>8m</span></li>
+              <li>Width: <span>8</span></li>
+              <li>Area: <span>545m2</span></li>
+              <li>Class: <span></span>First</li>
+              <li>Gate Level: <span></span>6</li>
+            </ul>
+            <div class="main-button">
+              <a href="booking.html">Book Flight</a>
+            </div>
+          </div>
         </div>
 
-        <form id="feedback-form" action="" method="POST" style="background-color: white; border-radius: 10px; padding: 20px; width: 100%; max-width: 1200px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 1px solid #ccc; box-sizing: border-box; margin: 0 auto;">
-            <!-- Error message for empty fields -->
-            <div class="error" id="error-message" style="display: none; color: red; margin-bottom: 15px;">Please fill in all fields.</div>
-        
-   
-        
-            <!-- Rating -->
-            <div style="margin-bottom: 20px;">
-                <label for="rating" style="display: block; margin-bottom: 5px; font-weight: bold;">Share your experience in rating</label>
-                <div style="display: flex; align-items: center;" id="rating">
-                    <span class="star" data-value="1" style="font-size: 24px; cursor: pointer;">&#9733;</span>
-                    <span class="star" data-value="2" style="font-size: 24px; cursor: pointer;">&#9733;</span>
-                    <span class="star" data-value="3" style="font-size: 24px; cursor: pointer;">&#9733;</span>
-                    <span class="star" data-value="4" style="font-size: 24px; cursor: pointer;">&#9733;</span>
-                    <span class="star" data-value="5" style="font-size: 24px; cursor: pointer;">&#9733;</span>
-                </div>
-                <input type="hidden" id="rating-value" name="rating" value="0"> <!-- Hidden input to store selected rating -->
-            </div>
-        
-            <!-- Comment -->
-            <div style="margin-bottom: 20px;">
-                <label for="comments" style="display: block; margin-bottom: 5px; font-weight: bold;">Add your comments</label>
-                <textarea id="comments" name="comments" rows="4" placeholder="Add your comments..."
-                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;"></textarea>
-            </div>
-        
-            <!-- Buttons -->
-            <div style="text-align: right;">
-                <button type="reset" style="padding: 10px 15px; margin-right: 10px; border: none; background-color: #ccc; color: white; border-radius: 5px; cursor: pointer;">Cancel</button>
-                <button type="button" id="submit-btn" style="padding: 10px 15px; border: none; background-color: #4CAF50; color: white; border-radius: 5px; cursor: pointer;">Submit</button>
-            </div>
-        
-            <!-- Success message after submission -->
-            <div class="success" id="success-message" style="display: none; color: green; margin-top: 15px;">Thank you for your feedback!</div>
-        </form>
-        
-        <script>
-            const stars = document.querySelectorAll('.star');
-            const ratingValue = document.getElementById('rating-value');
-        
-            stars.forEach(star => {
-                star.addEventListener('click', () => {
-                    const value = star.getAttribute('data-value');
-        
-                    // Set the rating value
-                    ratingValue.value = value;
-        
-                    // Remove the selected class from all stars
-                    stars.forEach(s => s.classList.remove('selected'));
-        
-                    // Add selected class to the clicked star and all previous stars
-                    star.classList.add('selected');
-                    let prevStar = star.previousElementSibling;
-                    while (prevStar) {
-                        prevStar.classList.add('selected');
-                        prevStar = prevStar.previousElementSibling;
-                    }
-                });
-        
-                star.addEventListener('mouseover', () => {
-                    star.classList.add('hover');
-                    let prevStar = star.previousElementSibling;
-                    while (prevStar) {
-                        prevStar.classList.add('hover');
-                        prevStar = prevStar.previousElementSibling;
-                    }
-                });
-        
-                star.addEventListener('mouseout', () => {
-                    star.classList.remove('hover');
-                    let prevStar = star.previousElementSibling;
-                    while (prevStar) {
-                        prevStar.classList.remove('hover');
-                        prevStar = prevStar.previousElementSibling;
-                    }
-                });
-            });
-        
-            document.getElementById('submit-btn').addEventListener('click', () => {
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const rating = ratingValue.value;
-                const comments = document.getElementById('comments').value;
-                const errorMessage = document.getElementById('error-message');
-                const successMessage = document.getElementById('success-message');
-        
-                // Validate form
-                if (!name || !email || rating === "0" || !comments) {
-                    errorMessage.style.display = 'block';
-                    successMessage.style.display = 'none';
-                } else {
-                    errorMessage.style.display = 'none';
-                    successMessage.style.display = 'block';
-                    // You can send the data to your server here if needed
-                    console.log({ name, email, rating, comments });
-                }
-            });
-        </script>
-</body>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a class="is_active" href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © FlightMatch Corporations. All rights reserved. 
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/counter.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+  
+
+  </body>
 </html>
