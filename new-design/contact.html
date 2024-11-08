@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Customer Page</title>
 
-    <title>Customer Page</title>
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/templatemo-villa-agency.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-
-  </head>
+</head>
 
 <body>
 
@@ -113,13 +111,13 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="item phone">
-                <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
+                <img src="{% static 'assets/images/phone-icon.png' %}" alt="" style="max-width: 52px;">
                 <h6>Phone Number<br><span>(032) 261 7741</span></h6>
               </div>
             </div>
             <div class="col-lg-12">
               <div class="item email">
-                <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
+                <img src="{% static 'assets/images/email-icon.png' %}" alt="" style="max-width: 52px;">
                 <h6>Email<br><span>FlightMatch@gmail.com</span></h6>
               </div>
             </div>
@@ -127,13 +125,8 @@
         </div>
         <div class="col-lg-6">
           <form id="contact-form" action="" method="post">
+            {% csrf_token %}
             <div class="row">
-              <!-- <div class="col-lg-12">
-                <fieldset>
-                  <label for="name">Full Name</label>
-                  <input type="name" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
-                </fieldset>
-              </div> -->
               <div class="col-lg-12">
                 <fieldset>
                   <label for="email">Email Address</label>
@@ -143,13 +136,13 @@
               <div class="col-lg-12">
                 <fieldset>
                   <label for="number">Phone Number</label>
-                  <input type="text" name="number" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Phone Number..." required="">
+                  <input type="text" name="number" id="number" pattern="\d*" placeholder="Your Phone Number..." required="">
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
                   <label for="subject">Subject</label>
-                  <input type="subject" name="subject" id="subject" placeholder="Subject..." autocomplete="on" >
+                  <input type="text" name="subject" id="subject" placeholder="Subject..." autocomplete="on">
                 </fieldset>
               </div>
               <div class="col-lg-12">
@@ -174,22 +167,24 @@
       </div>
     </div>
   </div>
+
   <footer>
     <div class="container">
       <div class="col-lg-12">
-        <p>Copyright © FlightMatch Corporations. All rights reserved.
+        <p>Copyright © FlightMatch Corporations. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/counter.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/animation.js' %}"></script>
+  <script src="{% static 'assets/js/imagesloaded.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+</body>
 
-  </body>
 </html>
