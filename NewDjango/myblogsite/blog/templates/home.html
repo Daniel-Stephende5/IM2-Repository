@@ -1,49 +1,207 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="{% static  'main.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static  'navbar.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static  'home.css' %}" />
-    <title>HOME</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-villa-agency.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
   </head>
+
   <body>
-    <!-- Navigation Bar -->
-    <nav>
-      <a href="{% url 'home' %}" style="color: #000">Home</a>
-      <a href="{% url 'flights' %}">View Flights</a>
-      <a href="{% url 'info' %}">Information</a>
-      <a href="{% url 'checkin' %}">Check In</a>
-      <a href="{% url 'booking' %}">Booking</a>
-      <a href="{% url 'contact' %}">Customer Support</a>
-      <a href="{% url 'signup' %}">Sign up</a>
-      <a href="{% url 'login' %}">Login</a>
-    </nav>
-
-    {% if messages %}
-    <div class="message-container">
-      {% for message in messages %}
-      <div class="alert">{{ message }}</div>
-      {% endfor %}
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
-    {% endif %}
+    <!-- ***** Preloader End ***** -->
 
-    <!-- Hero Section -->
-    <div class="hero-section home-bg">
-      <div>
-        <h1 class="welcome">WELCOME TO OUR FLIGHT MANAGEMENT SYSTEM</h1>
-        <p>Your gateway to the skies. Explore flights, check in, and more.</p>
-        <a href="{% url 'flights' %}">Book a Flight Now</a>
+    <div class="sub-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-8">
+            <ul class="info">
+              <li><i class="fa fa-envelope"></i> JoeMarie@citedu.com</li>
+              <li><i class="fa fa-map"></i> 7VVJ+QFR, Natalio B. Bacalso Ave, Cebu City, 6000 Cebu</li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <ul class="social-links">
+              <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Features Section -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="{% url 'home' %}" class="logo">
+                <h1>FlightMatch</h1>
+              </a>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav">
+                <li><a href="{% url 'home' %}" class="active">Home</a></li>
+                <li><a href="{% url 'flights' %}">View Flights</a></li>
+                <li><a href="{% url 'booking' %}">Booking</a></li>
+                <li><a href="{% url 'checkin' %}">Check In</a></li>
+                <li><a href="{% url 'info' %}">Information</a></li>
+                <li><a href="{% url 'contact' %}">Customer Support</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'login' %}"><i class="fa fa-calendar"></i> Login</a></li>
+              </ul>  
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
 
-    <!-- Footer -->
-    <footer class="footer-class">
-      <p>&copy; 2024 Airline Company. All rights reserved.</p>
+    <div class="main-banner">
+      <div class="owl-carousel owl-banner">
+        <div class="item item-1">
+          <div class="header-text">
+            <span class="category">Sm Seaside, <em>Cebu</em></span>
+            <h2>Hurry!<br>Get the Best Deals for you</h2>
+          </div>
+        </div>
+        <div class="item item-2">
+          <div class="header-text">
+            <span class="category">Tokyo, <em>Japan</em></span>
+            <h2>Be Quick!<br>travel to your next destination</h2>
+          </div>
+        </div>
+        <div class="item item-3">
+          <div class="header-text">
+            <span class="category">Taoist Temple, <em>Cebu</em></span>
+            <h2>Act Now!<br>Book a flight</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="left-image">
+              <img src="{% static 'assets/images/featured.jpg' %}" alt="">
+              <a href="property-details.html"><img src="{% static 'assets/images/featured-icon.png' %}" alt="" style="max-width: 60px; padding: 0px;"></a>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="section-heading">
+              <h6>| Featured</h6>
+              <h2>Best Seats &amp; In The Sky</h2>
+            </div>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Best Seats
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Get <strong>the best seats</strong> and elevate your travel experience! Enjoy extra legroom, stunning window views, and premium comfort throughout your journey. Reserve now and make your next flight unforgettable!
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    How does this work ?
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    It's <strong>simple and easy</strong>, All you have to do is book a flight and we'll give you the best option for you!
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Why <b> FlightMatch</b> ?
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    We <strong>provide the best</strong> services for your next travel destination.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="info-table">
+              <ul>
+                <li>
+                  <img src="{% static 'assets/images/info-icon-01.png' %}" alt="" style="max-width: 52px;">
+                  <h4>Seat Space<br><span>More Leg Room</span></h4>
+                </li>
+                <li>
+                  <img src="{% static 'assets/images/info-icon-02.png' %}" alt="" style="max-width: 52px;">
+                  <h4>Customer Support<br><span>24/7 Customer Support</span></h4>
+                </li>
+                <li>
+                  <img src="{% static 'assets/images/info-icon-03.png' %}" alt="" style="max-width: 52px;">
+                  <h4>Payment<br><span>Pay Upon Arrival</span></h4>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="text-center">© 2024 FlightMatch. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
     </footer>
+
+    <!-- Bootstrap core JS -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/js/counter.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    
   </body>
 </html>
