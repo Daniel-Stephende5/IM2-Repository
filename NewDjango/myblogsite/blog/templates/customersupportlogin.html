@@ -1,58 +1,178 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'info.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'customer.css' %}" />
-    <title>CUSTOMER SUPPORT</title>
-  </head>
-  <body>
-    <!-- Navigation Bar -->
-    <nav>
-      <a href="{% url 'home' %}">Home</a>
-      <a href="{% url 'flights' %}">View Flights</a>
-      <a href="{% url 'info' %}">Information</a>
-      <a href="{% url 'checkin' %}">Check In</a>
-      <a href="{% url 'booking' %}">Booking</a>
-      <a href="{% url 'contact' %}" style="color: #000">Customer Support</a>
-      <a href="{% url 'logout' %}">Logout</a>
-    </nav>
- 
-    <!-- Contact Form Section -->
-    <div class="container">
-      <div class="left-side">
-        <!-- Contact Information Section... -->
-      </div>
- 
-      <div class="right-side">
-        <!-- Display messages -->
-        {% if messages %}
-        <div class="message-container">
-          {% for message in messages %}
-          <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
-            {{ message }}
-          </div>
-          {% endfor %}
-        </div>
-        {% endif %}
- 
-        <h2>Contact Us (login.html)</h2>
-        <p>Any question or remarks? Just write us a message!</p>
-        <form action="{% url 'contact' %}" method="post">
-          {% csrf_token %} {{ form.as_p }}
-          <!-- This will render form fields with labels, errors, and inputs -->
-          <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <title>Customer Page</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/templatemo-villa-agency.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
- 
-    <footer>
-      <p>&copy; 2024 Airline Company. All rights reserved.</p>
-    </footer>
-  </body>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <ul class="info">
+            <li><i class="fa fa-envelope"></i> JoeMarie@citedu.com</li>
+            <li><i class="fa fa-map"></i> 7VVJ+QFR, Natalio B. Bacalso Ave, Cebu City, 6000 Cebu</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <ul class="social-links">
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <h1>FlightMatch</h1>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="{% url 'home' %}">Home</a></li>
+                      <li><a href="{% url 'flights' %}">View Flights</a></li>
+                      <li><a href="{% url 'booking' %}">Booking</a></li>
+                      <li><a href="{% url 'checkin' %}">Check In</a></li>
+                      <li><a href="{% url 'info' %}">Information</a></li>
+                      <li><a href="{% url 'contact' %}" class="active">Customer Support</a></li>
+                      <li><a href="{% url 'logout' %}"><i class="fa fa-calendar"></i> Logout</a></li>
+                  </ul>  
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Customer Support</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if messages %}
+  <div class="message-container">
+    {% for message in messages %}
+    <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+      {{ message }}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="contact-page section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h6>| Contact Us</h6>
+            <h2>Get In Touch With Our Agents</h2>
+          </div>
+          <p>Get in touch with our agents to start planning your next adventure today. Our experienced team is here to provide personalized assistance, helping you find the perfect flights, accommodations, and services for your journey. Whether you’re traveling for business or leisure, our agents are ready to offer expert advice and support every step of the way. With our commitment to exceptional customer service, we ensure that your travel experience is smooth, stress-free, and tailored to your needs. Reach out now and let us help you create memories that last a lifetime.</p>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="item phone">
+                <img src="{% static 'assets/images/phone-icon.png' %}" alt="" style="max-width: 52px;">
+                <h6>Phone Number<br><span>(032) 261 7741</span></h6>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="item email">
+                <img src="{% static 'assets/images/email-icon.png' %}" alt="" style="max-width: 52px;">
+                <h6>Email<br><span>FlightMatch@gmail.com</span></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+            <form action="{% url 'contact' %}" method="post">
+            {% csrf_token %} {{ form.as_p }}
+            <div class="row">
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="orange-button">Send Message</button>
+                </fieldset>
+              </div>
+            </div>
+          
+        </div>
+        <div class="col-lg-12">
+          <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.247795131581!2d123.87855907484996!3d10.294475489826507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a99c015a4bf233%3A0x95d783198f4634f8!2sCebu%20Institute%20of%20Technology%20-%20University!5e1!3m2!1sen!2sph!4v1730965658156!5m2!1sen!2sph" width="100%" height="500px" frameborder="0" style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);" allowfullscreen=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © FlightMatch Corporations. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/animation.js' %}"></script>
+  <script src="{% static 'assets/js/imagesloaded.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+</body>
+
 </html>
- 
