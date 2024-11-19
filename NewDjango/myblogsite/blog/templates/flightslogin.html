@@ -1,0 +1,308 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <title>View Flights</title>
+
+        <!-- Bootstrap core CSS -->
+        {% comment %} <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> {% endcomment %}
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+        <!-- Additional CSS Files -->
+        <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/templatemo-villa-agency.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    </head>
+
+    <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <div class="sub-header">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+            <ul class="info">
+                <li><i class="fa fa-envelope"></i> JoeMarie@citedu.com</li>
+                <li><i class="fa fa-map"></i>  7VVJ+QFR, Natalio B. Bacalso Ave, Cebu City, 6000 Cebu</li>
+            </ul>
+            </div>
+            <div class="col-lg-4 col-md-4">
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <h1>FlightMatch</h1>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'flights' %}" class="active">View Flights</a></li>
+                            <li><a href="{% url 'booking' %}">Booking</a></li>
+                            <li><a href="{% url 'checkin' %}">Check In</a></li>
+                            <li><a href="{% url 'info' %}">Information</a></li>
+                            <li><a href="{% url 'contact' %}">Customer Support</a></li>
+                            <li><a href="{% url 'login' %}"><i class="fa fa-calendar"></i> Logout</a></li>
+                            
+                    </ul>   
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="page-heading header-text">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+            <h3>View Flights</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="section properties">
+        <div class="container">
+        <ul class="properties-filter">
+            <li>
+            <a class="is_active" href="#!" data-filter="*">Show All</a>
+            </li>
+            <li>
+            <a href="#!" data-filter=".adv">Europe</a>
+            </li>
+            <li>
+            <a href="#!" data-filter=".str">Asia</a>
+            </li>
+        </ul>
+        <div class="row properties-box">
+            <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv">
+            <div class="item">
+                <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-01.jpg' %}" alt=""></a>
+                
+
+
+                <span class="category">Paris, France</span>
+                <h6>$2.264.000</h6>
+                <h4><a href="booking.html">Flight Details</a></h4>
+                <ul>
+                <li>Height: <span>8m</span></li>
+                <li>Width: <span>8</span></li>
+                <li>Area: <span>545m2</span></li>
+                <li>Class: <span></span>First</li>
+                <li>Gate Level: <span></span>6</li>
+                </ul>
+                <div class="main-button">
+                <a href="booking.html">Book Flight</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 str">
+            <div class="item">
+                <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-05.jpg' %}" alt=""></a>
+
+                <span class="category">Tokyo, Japan</span>
+                <h6>$1.180.000</h6>
+                <h4><a href="booking.html">Flight Details</a></h4>
+                <ul>
+                <li>Height: <span>8m</span></li>
+                <li>Width: <span>8</span></li>
+                <li>Area: <span>545m2</span></li>
+                <li>Class: <span></span>First</li>
+                <li>Gate Level: <span></span>6</li>
+                </ul>
+                <div class="main-button">
+                <a href="booking.html">Book Flight</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv rac">
+            <div class="item">
+                <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-02.jpg' %}" alt=""></a>
+
+                <span class="category">Bruges ,Belgium</span>
+                <h6>$1.460.000</h6>
+                <h4><a href="booking.html">Flight Details</a></h4>
+                <ul>
+                <li>Height: <span>8m</span></li>
+                <li>Width: <span>8</span></li>
+                <li>Area: <span>545m2</span></li>
+                <li>Class: <span></span>First</li>
+                <li>Gate Level: <span></span>6</li>
+                </ul>
+                <div class="main-button">
+                <a href="booking.html">Book Flight</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 str">
+            <div class="item">
+                <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-08.jpg' %}" alt=""></a>
+                
+
+                <span class="category">Cebu, Philipines</span>
+                <h6>$584.500</h6>
+                <h4><a href="booking.html">Flight Details</a></h4>
+                <ul>
+                <li>Height: <span>8m</span></li>
+                <li>Width: <span>8</span></li>
+                <li>Area: <span>545m2</span></li>
+                <li>Class: <span></span>First</li>
+                <li>Gate Level: <span></span>6</li>
+                </ul>
+                <div class="main-button">
+                <a href="booking.html">Book Flight</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac str">
+            <div class="item">
+                <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-07.jpg' %}" alt=""></a>
+
+                <span class="category">Shanghai, China</span>
+                <h6>$925.600</h6>
+                <h4><a href="booking.html">Flight Details</a></h4>
+                <ul>
+                <li>Height: <span>8m</span></li>
+                <li>Width: <span>8</span></li>
+                <li>Area: <span>545m2</span></li>
+                <li>Class: <span></span>First</li>
+                <li>Gate Level: <span></span>6</li>
+                </ul>
+                <div class="main-button">
+                <a href="booking.html">Book Flight</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac adv">
+            <div class="item">
+                <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-03.jpg' %}" alt=""></a>
+
+                <span class="category">Tirol, Austria</span>
+                <h6>$450.000</h6>
+                <h4><a href="booking.html">Flight Details</a></h4>
+                <ul>
+                <li>Height: <span>8m</span></li>
+                <li>Width: <span>8</span></li>
+                <li>Area: <span>545m2</span></li>
+                <li>Class: <span></span>First</li>
+                <li>Gate Level: <span></span>6</li>
+                </ul>
+                <div class="main-button">
+                <a href="booking.html">Book Flight</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac str">
+            <div class="item">
+                <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-03.jpg' %}" alt=""></a>
+
+                <span class="category">Luxury Villa</span>
+                <h6>$980.000</h6>
+                <h4><a href="booking.html">Flight Details</a></h4>
+                <ul>
+                <li>Height: <span>8m</span></li>
+                <li>Width: <span>8</span></li>
+                <li>Area: <span>545m2</span></li>
+                <li>Class: <span></span>First</li>
+                <li>Gate Level: <span></span>6</li>
+                </ul>
+                <div class="main-button">
+                <a href="booking.html">Book Flight</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac adv">
+            <div class="item">
+                <a href="{% url 'booking' %}"><img src="{% static 'assets/images/property-04.jpg' %}" alt=""></a>
+
+                <span class="category">York, England</span>
+                <h6>$1.520.000</h6>
+                <h4><a href="booking.html">Flight Details</a></h4>
+                <ul>
+                <li>Height: <span>8m</span></li>
+                <li>Width: <span>8</span></li>
+                <li>Area: <span>545m2</span></li>
+                <li>Class: <span></span>First</li>
+                <li>Gate Level: <span></span>6</li>
+                </ul>
+                <div class="main-button">
+                <a href="booking.html">Book Flight</a>
+                </div>
+            </div>
+            </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+            <ul class="pagination">
+                <li><a href="#">1</a></li>
+                <li><a class="is_active" href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#"></a></li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+        <div class="col-lg-12">
+            <p>Copyright © FlightMatch Corporations. All rights reserved. 
+        </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/js/counter.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    
+
+    </body>
+    </html>
