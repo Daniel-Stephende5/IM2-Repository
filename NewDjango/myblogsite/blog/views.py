@@ -3,6 +3,8 @@ from django.contrib.auth import login, authenticate, logout
 from .forms import SignupForm, LoginForm, ContactForm, CustomerLogForm
 from django.contrib import messages
 from .models import CustomerLog
+from django.http import HttpResponse
+from django.shortcuts import render
 
 # Signup View
 def signup_view(request):

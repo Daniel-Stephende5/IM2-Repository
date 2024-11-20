@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+import uuid
+
 
 # Base Post and Comment models for blog-like structure
 class Post(models.Model):
@@ -56,18 +59,12 @@ class FeedbackForm(models.Model):
     def __str__(self):
         return f'Feedback by {self.login.username}'
 
-# CheckIn model for user check-in statuses (updated to allow null booking_id)
 class CheckIn(models.Model):
-    checkin_id = models.AutoField(primary_key=True)  # Automatically increments for each new entry
-    booking_id = models.ForeignKey(Booking, on_delete=models.CASCADE)
-    flight_id = models.ForeignKey('Flight', on_delete=models.CASCADE)
-    checkin_time = models.DateTimeField()
-    status = models.CharField(max_length=50)
-    seat_number = models.CharField(max_length=50)
+    booking_reference = models.CharField(max_length=100)  # No primary key explicitly set
+    checkin_time = models.DateField()
 
     def __str__(self):
-        return f'CheckIn {self.checkin_id} for Booking {self.booking_id}'
-
+        return f"CheckIn for {self.booking_reference}"
 # User model for simplicity in some parts of the project
 class User(models.Model):
     username = models.CharField(max_length=50)
