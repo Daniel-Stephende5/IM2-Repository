@@ -149,7 +149,11 @@ def contact_view(request):
             messages.error(request, "There was an error with your submission, please check again.")
     else:
         form = CustomerLogForm()
-    return render(request, 'customersupportlogin.html', {'form': form})
+
+    if request.user.is_authenticated:
+        return render(request, 'customersupportlogin.html', {'form': form})
+    else:
+        return render(request, 'customersupport.html', {'form': form})
 
 # Customer Logs View
 def customer_logs_view(request):
