@@ -28,6 +28,8 @@
     />
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/navybar.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/checkin.css' %}" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
@@ -40,6 +42,7 @@
 
   <body>
     <!-- ***** Preloader Start ***** -->
+    {% comment %}
     <div id="js-preloader" class="js-preloader">
       <div class="preloader-inner">
         <span class="dot"></span>
@@ -50,6 +53,7 @@
         </div>
       </div>
     </div>
+    {% endcomment %}
     <!-- ***** Preloader End ***** -->
 
     <div class="sub-header">
@@ -86,18 +90,43 @@
       </div>
     </div>
 
+    <div class="container">
+      <div class="navybar">
+        <div class="navbar66">
+          <div class="logo66"><a href="#">FlightMatch</a></div>
+          <ul class="menu66">
+            <li>
+              <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li><a href="{% url 'flights' %}">View Flights</a></li>
+            <li><a href="{% url 'booking' %}">Booking</a></li>
+            <li>
+              <a href="{% url 'checkin' %}" class="active navy-active"
+                >Check In</a
+              >
+            </li>
+            <li><a href="{% url 'info' %}">Information</a></li>
+            <li><a href="{% url 'contact' %}">Customer Support</a></li>
+            <li>
+              <a href="{% url 'logout' %}"
+                ><i class="fa fa-calendar"></i> Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <!-- ***** Header Area Start ***** -->
+    {% comment %}
     <header class="header-area header-sticky">
       <div class="container">
         <div class="row">
           <div class="col-12">
             <nav class="main-nav">
-              <!-- ***** Logo Start ***** -->
               <a href="{% url 'home' %}" class="logo">
                 <h1>FlightMatch</h1>
               </a>
-              <!-- ***** Logo End ***** -->
-              <!-- ***** Menu Start ***** -->
               <ul class="nav">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'flights' %}">View Flights</a></li>
@@ -107,21 +136,22 @@
                 </li>
                 <li><a href="{% url 'info' %}">Information</a></li>
                 <li><a href="{% url 'contact' %}">Customer Support</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
                 <li>
-                  <a href="{% url 'logout' %}"
-                    ><i class="fa fa-calendar"></i> Logout</a
+                  <a href="{% url 'login' %}"
+                    ><i class="fa fa-calendar"></i> Login</a
                   >
                 </li>
               </ul>
               <a class="menu-trigger">
                 <span>Menu</span>
               </a>
-              <!-- ***** Menu End ***** -->
             </nav>
           </div>
         </div>
       </div>
     </header>
+    {% endcomment %}
     <!-- ***** Header Area End ***** -->
 
     <div class="page-heading header-text">
@@ -134,13 +164,40 @@
       </div>
     </div>
 
-    <h1>Check-Ins</h1>
+
+    {% if messages %}
     <ul>
-      {% for checkin in checkins %}
-      <li>{{ checkin.booking_reference }} - {{ checkin.checkin_time }}</li>
+      {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
       {% endfor %}
     </ul>
+    {% endif %}
 
+    <div class="checkin">
+      <h2>Check-in Form</h2>
+      <form method="POST" class="checkin-form">
+        {% csrf_token %}
+        
+        <div class="form-group">
+          <label for="booking_reference">Booking Reference:</label>
+          <input
+            type="text"
+            id="booking_reference"
+            name="booking_reference"
+            placeholder="Enter your booking reference"
+            required
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="checkin_time">Check-in Time:</label>
+          <input type="date" id="checkin_time" name="checkin_time" required />
+        </div>
+  
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+  </div>
+    {% comment %}
     <div class="contact-page section">
       <div class="container">
         <div class="row">
@@ -149,16 +206,15 @@
               {% csrf_token %}
               <div class="row">
                 <div class="col-lg-12">
-                  <fieldset>
-                    <label>Booking Reference</label>
-                    <input
-                      type="text"
-                      name="booking_reference"
-                      id="booking_reference"
-                      placeholder="Enter Reference..."
-                      required=""
-                    />
-                  </fieldset>
+   <form method="POST">
+      {% csrf_token %}
+      <label for="booking_reference">Booking Reference:</label>
+      <input
+        type="text"
+        id="booking_reference"
+        name="booking_reference"
+        required
+      />
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
@@ -183,6 +239,7 @@
         </div>
       </div>
     </div>
+    {% endcomment %}
 
     <footer>
       <div class="container">

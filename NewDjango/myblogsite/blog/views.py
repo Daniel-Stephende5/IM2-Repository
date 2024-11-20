@@ -103,12 +103,7 @@ def checkin_view(request):
 def checkin_list(request):
     checkins = CheckIn.objects.all()  # Fetch all check-ins
     return render(request, 'blog/checkin_list.html', {'checkins': checkins})
-# Booking View
-def booking_view(request):
-    if request.user.is_authenticated:
-        return render(request, 'bookinglogin.html')
-    else:
-        return render(request, 'booking.html')
+
     
 def checkin_create(request):
     if request.method == 'POST':
@@ -160,6 +155,12 @@ def customer_logs_view(request):
     logs = CustomerLog.objects.all()
     return render(request, 'customerlogs.html', {'logs': logs})
 
+# Booking View
+def booking_view(request):
+    if request.user.is_authenticated:
+        return render(request, 'bookinglogin.html')
+    else:
+        return render(request, 'booking.html')
 
 def booking_create(request):
     if request.method == 'POST':
@@ -170,8 +171,16 @@ def booking_create(request):
 
             # Return a success message (or redirect)
             success_message = "Booking has been successfully created."
-            return render(request, 'booking.html', {'form': form, 'success_message': success_message})
+            # Check if the user is logged in
+            if request.user.is_authenticated:
+                return render(request, 'bookinglogin.html', {'form': form, 'success_message': success_message})
+            else:
+                return render(request, 'booking.html', {'form': form, 'success_message': success_message})
     else:
         form = BookingForm()
 
-    return render(request, 'booking.html', {'form': form})
+    # Check if the user is logged in
+    if request.user.is_authenticated:
+        return render(request, 'bookinglogin.html', {'form': form})
+    else:
+        return render(request, 'booking.html', {'form': form})
