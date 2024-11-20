@@ -3,7 +3,16 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Booking
 from .models import CustomerLog
+from .models import CheckIn
  
+ 
+class CheckInForm(forms.ModelForm):
+    class Meta:
+        model = CheckIn
+        fields = ['booking_reference', 'checkin_time']
+        widgets = {
+            'checkin_time': forms.DateInput(attrs={'type': 'date'}),
+        }
 
 class SignupForm(UserCreationForm):
     class Meta:

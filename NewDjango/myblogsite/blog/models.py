@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 import uuid
 
-
 # Base Post and Comment models for blog-like structure
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -65,6 +64,7 @@ class CheckIn(models.Model):
 
     def __str__(self):
         return f"CheckIn for {self.booking_reference}"
+
 # User model for simplicity in some parts of the project
 class User(models.Model):
     username = models.CharField(max_length=50)
@@ -112,4 +112,3 @@ class CustomerLog(models.Model):
  
     def __str__(self):
         return f"{self.email} - {self.subject}"
-2

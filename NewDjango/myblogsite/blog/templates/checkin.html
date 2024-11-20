@@ -164,6 +164,28 @@
       </div>
     </div>
 
+    <h1>Check-In</h1>
+    <form method="POST">
+      {% csrf_token %}
+      <label for="booking_reference">Booking Reference:</label>
+      <input
+        type="text"
+        name="booking_reference"
+        id="booking_reference"
+        required
+      /><br /><br />
+
+      <label for="checkin_time">Check-In Time:</label>
+      <input
+        type="date"
+        name="checkin_time"
+        id="checkin_time"
+        required
+      /><br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
     <div class="contact-page section">
       <div class="container">
         <div class="row">
