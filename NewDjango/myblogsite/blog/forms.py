@@ -6,13 +6,7 @@ from .models import CustomerLog
 from .models import CheckIn
  
  
-class CheckInForm(forms.ModelForm):
-    class Meta:
-        model = CheckIn
-        fields = ['booking_reference', 'checkin_time']
-        widgets = {
-            'checkin_time': forms.DateInput(attrs={'type': 'date'}),
-        }
+
 
 class SignupForm(UserCreationForm):
     class Meta:
@@ -68,3 +62,11 @@ class CustomerLogForm(forms.ModelForm):
     class Meta:
         model = CustomerLog
         fields = ['email', 'phone', 'subject', 'message']
+        
+class CheckInForm(forms.ModelForm):
+    class Meta:
+        model = CheckIn
+        fields = ['booking_reference', 'checkin_time']
+        widgets = {
+            'checkin_time': forms.DateInput(attrs={'type': 'date'}),
+        }

@@ -8,22 +8,8 @@ from django.shortcuts import render
 from .models import CheckIn
 from .forms import CheckInForm
 
-def checkin_form(request):
-    if request.method == 'POST':
-        # Get data from the form
-        booking_reference = request.POST.get('booking_reference')
-        checkin_time = request.POST.get('checkin_time')
 
-        # Debugging line: Check if the data is being captured correctly
-        print(f"Booking Reference: {booking_reference}, Check-in Time: {checkin_time}")
 
-        # Save the data to the database
-        CheckIn.objects.create(booking_reference=booking_reference, checkin_time=checkin_time)
-
-        # Simple response to indicate success
-        return HttpResponse("Check-in successfully created!")
-
-    return render(request, 'checkin_form.html')  # Show form on GET request
 # Signup View
 def signup_view(request):
     if request.method == 'POST':
@@ -93,10 +79,24 @@ def info_view(request):
 
 # Check-In View
 def checkin_view(request):
+    if request.method == 'POST':  # Handle form submission
+        booking_reference = request.POST.get('booking_reference')
+        checkin_time = request.POST.get('checkin_time')
+
+        # Debugging line to check if form data is being captured correctly
+        print(f"Booking Reference: {booking_reference}, Check-in Time: {checkin_time}")
+
+        # Save to the database
+        CheckIn.objects.create(booking_reference=booking_reference, checkin_time=checkin_time)
+
+        # Add success message to the messages framework
+        messages.success(request, "Check-in successfully created!")
+
+    # Check if the user is authenticated
     if request.user.is_authenticated:
-        return render(request, 'checkinlogin.html')
+        return render(request, 'checkinlogin.html')  # Render checkinlogin.html for logged-in users
     else:
-        return render(request, 'checkin.html')
+        return render(request, 'checkin.html')  # Render checkin.html for non-authenticated users
     
 def checkin_list(request):
     checkins = CheckIn.objects.all()  # Fetch all check-ins
@@ -119,6 +119,22 @@ def checkin_create(request):
 
     return render(request, 'blog/checkin_create.html', {'form': form})
 
+def checkin_form(request):
+    if request.method == 'POST':
+        booking_reference = request.POST.get('booking_reference')
+        checkin_time = request.POST.get('checkin_time')
+
+        # Debugging line to check the values coming from the form
+        print(f"Booking Reference: {booking_reference}, Check-in Time: {checkin_time}")
+
+        # Save the data to the database
+        CheckIn.objects.create(booking_reference=booking_reference, checkin_time=checkin_time)
+
+        # Add a success message
+        messages.success(request, "Check-in successfully created!")
+
+    return render(request, 'checkin.html')  # Renders the checkin.html template
+
 # Contact View
 def contact_view(request):
     if request.method == 'POST':
@@ -137,3 +153,4 @@ def contact_view(request):
 def customer_logs_view(request):
     logs = CustomerLog.objects.all()
     return render(request, 'customerlogs.html', {'logs': logs})
+

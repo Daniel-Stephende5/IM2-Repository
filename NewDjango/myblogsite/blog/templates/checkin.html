@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/navybar.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/checkin.css' %}" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
@@ -164,28 +165,40 @@
       </div>
     </div>
 
-    <h1>Check-In</h1>
-    <form method="POST">
-      {% csrf_token %}
-      <label for="booking_reference">Booking Reference:</label>
-      <input
-        type="text"
-        name="booking_reference"
-        id="booking_reference"
-        required
-      /><br /><br />
 
-      <label for="checkin_time">Check-In Time:</label>
-      <input
-        type="date"
-        name="checkin_time"
-        id="checkin_time"
-        required
-      /><br /><br />
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
 
-      <button type="submit">Submit</button>
-    </form>
-
+    <div class="checkin">
+      <h2>Check-in Form</h2>
+      <form method="POST" class="checkin-form">
+        {% csrf_token %}
+        
+        <div class="form-group">
+          <label for="booking_reference">Booking Reference:</label>
+          <input
+            type="text"
+            id="booking_reference"
+            name="booking_reference"
+            placeholder="Enter your booking reference"
+            required
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="checkin_time">Check-in Time:</label>
+          <input type="date" id="checkin_time" name="checkin_time" required />
+        </div>
+  
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+  </div>
+    {% comment %}
     <div class="contact-page section">
       <div class="container">
         <div class="row">
@@ -194,16 +207,15 @@
               {% csrf_token %}
               <div class="row">
                 <div class="col-lg-12">
-                  <fieldset>
-                    <label>Booking Reference</label>
-                    <input
-                      type="text"
-                      name="booking_reference"
-                      id="booking_reference"
-                      placeholder="Enter Reference..."
-                      required=""
-                    />
-                  </fieldset>
+   <form method="POST">
+      {% csrf_token %}
+      <label for="booking_reference">Booking Reference:</label>
+      <input
+        type="text"
+        id="booking_reference"
+        name="booking_reference"
+        required
+      />
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
@@ -228,6 +240,7 @@
         </div>
       </div>
     </div>
+    {% endcomment %}
 
     <footer>
       <div class="container">
