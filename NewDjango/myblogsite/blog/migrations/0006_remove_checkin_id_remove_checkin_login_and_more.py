@@ -11,10 +11,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='checkin',
-            name='id',
-        ),
+        # Skip removing 'id' field since it may not exist or was already removed
         migrations.RemoveField(
             model_name='checkin',
             name='login',

@@ -1,0 +1,34 @@
+.login-form-group {
+  margin-bottom: 20px; /* Adds space between form fields */
+}
+
+.login-form-group label {
+  font-weight: bold; /* Makes labels bold */
+  margin-bottom: 5px; /* Space between label and input field */
+}
+
+.login-form-group input,
+.login-form-group select,
+.login-form-group textarea {
+  width: 100%; /* Make input fields full width */
+  padding: 10px; /* Add padding inside the fields */
+  border-radius: 5px; /* Slight rounded corners for inputs */
+  border: 1px solid #ccc; /* Light border for the input fields */
+}
+
+.login-form-group input[type="tel"] {
+  font-family: Arial, sans-serif; /* Style the font for phone number input */
+}
+
+.login-form-group button {
+  background-color: #ff6600; /* Button color */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding around the button */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners for button */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+}
+
+.login-form-group button:hover {
+  background-color: #e65c00; /* Darker shade on button hover */
+}
