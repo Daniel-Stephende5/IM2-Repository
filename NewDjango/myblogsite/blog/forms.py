@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Booking
 from .models import CustomerLog
 from .models import CheckIn
+from django import forms
  
  
 
@@ -56,7 +57,7 @@ class ContactForm(forms.Form):
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['flight', 'date', 'seat_number']
+        fields = ['departure_city', 'arrival_destination', 'departure_date', 'return_date', 'passengers', 'email']
 
 class CustomerLogForm(forms.ModelForm):
     class Meta:

@@ -25,13 +25,6 @@ class LoginAdmin(admin.ModelAdmin):
     list_display = ('username', 'email')
     search_fields = ('username', 'email')
 
-# Registering the Booking model
-@admin.register(Booking)
-class BookingAdmin(admin.ModelAdmin):
-    list_display = ('login', 'flight', 'date', 'seat_number')
-    search_fields = ('login__username', 'flight__flight_number')
-    list_filter = ('date',)
-    date_hierarchy = 'date'
 
 # Registering the CustomerSupport model
 @admin.register(CustomerSupport)
@@ -71,3 +64,16 @@ class FeedbackFormAdmin(admin.ModelAdmin):
 
 # Registering additional models
 # Feel free to add further customization or unregister any default admin behaviors if needed.
+
+class BookingAdmin(admin.ModelAdmin):
+    # Update list_display to reflect the new fields in the model
+    list_display = ('departure_city', 'arrival_destination', 'departure_date', 'return_date', 'passengers', 'email')
+    
+    # Update list_filter to use existing fields like departure_date
+    list_filter = ('departure_date', 'arrival_destination', 'departure_city')
+
+    # Update date_hierarchy to use a valid date field
+    date_hierarchy = 'departure_date'  # or 'return_date'
+
+# Register the Booking model with the updated admin configuration
+admin.site.register(Booking, BookingAdmin)

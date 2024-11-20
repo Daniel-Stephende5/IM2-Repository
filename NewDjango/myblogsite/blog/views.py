@@ -7,6 +7,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import CheckIn
 from .forms import CheckInForm
+from .models import Booking
+from .forms import BookingForm  # Create a form for handling the booking data
 
 
 
@@ -154,3 +156,18 @@ def customer_logs_view(request):
     logs = CustomerLog.objects.all()
     return render(request, 'customerlogs.html', {'logs': logs})
 
+
+def booking_create(request):
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            # Save the form data to the database
+            form.save()
+
+            # Return a success message (or redirect)
+            success_message = "Booking has been successfully created."
+            return render(request, 'booking.html', {'form': form, 'success_message': success_message})
+    else:
+        form = BookingForm()
+
+    return render(request, 'booking.html', {'form': form})

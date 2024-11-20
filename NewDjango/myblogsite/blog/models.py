@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 import uuid
+import datetime
+from django.utils.timezone import now
 
 # Base Post and Comment models for blog-like structure
 class Post(models.Model):
@@ -32,13 +34,15 @@ class Login(models.Model):
 
 # Booking model to handle user bookings with relationships
 class Booking(models.Model):
-    login = models.ForeignKey(Login, on_delete=models.CASCADE)
-    flight = models.ForeignKey('Flight', on_delete=models.CASCADE)
-    date = models.DateTimeField()
-    seat_number = models.CharField(max_length=10)
+    departure_city = models.CharField(max_length=100, default='Cit University')
+    arrival_destination = models.CharField(max_length=100, default='Cit University')  # Set default value here
+    departure_date = models.DateTimeField(default=now)
+    return_date = models.DateTimeField(default=now) 
+    passengers = models.IntegerField()
+    email = models.EmailField()
 
     def __str__(self):
-        return f'Booking by {self.login.username} on {self.date}'
+        return f"{self.departure_city} to {self.arrival_destination} on {self.departure_date}"
 
 # Customer Support model for handling user inquiries
 class CustomerSupport(models.Model):
