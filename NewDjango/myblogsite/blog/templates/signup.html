@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/navybar.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/signup.css' %}" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
@@ -193,15 +194,24 @@
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
-                  <fieldset>
-                    <label for="number">Password</label>
-                    <input
-                      type="password"
-                      name="password1"
-                      placeholder="Password"
-                      required
-                    />
-                  </fieldset>
+                  <label for="number">Password</label>
+
+                  <form>
+                    <div class="signup-password-container">
+                      <input
+                        type="password"
+                        name="password1"
+                        id="password1"
+                        class="signup-password-input"
+                        placeholder="Password"
+                        required
+                      />
+                      <span id="toggle-password" class="signup-toggle-icon">
+                        <i class="fas fa-eye"></i>
+                        <!-- Font Awesome icon for showing password -->
+                      </span>
+                    </div>
+                  </form>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
@@ -247,5 +257,22 @@
     <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
     <script src="{% static 'assets/js/counter.js' %}"></script>
     <script src="{% static 'assets/js/custom.js' %}"></script>
+
+    <script>
+      // Get the input and toggle icon
+      const passwordInput = document.getElementById("password1");
+      const togglePassword = document.getElementById("toggle-password");
+
+      // Toggle password visibility
+      togglePassword.addEventListener("click", () => {
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          togglePassword.innerHTML = '<i class="fas fa-eye-slash"></i>'; // Change icon to "eye-slash" when the password is visible
+        } else {
+          passwordInput.type = "password";
+          togglePassword.innerHTML = '<i class="fas fa-eye"></i>'; // Change icon to "eye" when the password is hidden
+        }
+      });
+    </script>
   </body>
 </html>

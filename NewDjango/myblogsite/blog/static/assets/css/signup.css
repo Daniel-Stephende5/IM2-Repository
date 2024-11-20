@@ -1,0 +1,45 @@
+/* styles.css */
+
+.signup-password-container {
+  position: relative;
+  width: 100%;
+}
+
+.signup-password-input {
+  padding: 10px;
+  padding-right: 40px; /* Make space on the right for the icon */
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensures padding doesn't affect input size */
+}
+
+.signup-toggle-icon {
+  position: absolute;
+  right: 20px; /* Position icon inside the input */
+  top: 30%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.confirm-password-container {
+  position: relative;
+  width: 100%;
+}
+
+.confirm-password-input {
+  padding: 10px;
+  padding-right: 40px; /* Make space on the right for the icon */
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensures padding doesn't affect input size */
+}
+
+.confirm-toggle-icon {
+  position: absolute;
+  right: 10px; /* Position icon inside the input */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+}
