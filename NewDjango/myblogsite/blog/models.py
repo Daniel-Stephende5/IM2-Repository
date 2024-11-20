@@ -56,13 +56,17 @@ class FeedbackForm(models.Model):
     def __str__(self):
         return f'Feedback by {self.login.username}'
 
-# CheckIn model for user check-in statuses
+# CheckIn model for user check-in statuses (updated to allow null booking_id)
 class CheckIn(models.Model):
-    login = models.ForeignKey(Login, on_delete=models.CASCADE)
+    checkin_id = models.AutoField(primary_key=True)  # Automatically increments for each new entry
+    booking_id = models.ForeignKey(Booking, on_delete=models.CASCADE)
+    flight_id = models.ForeignKey('Flight', on_delete=models.CASCADE)
+    checkin_time = models.DateTimeField()
     status = models.CharField(max_length=50)
+    seat_number = models.CharField(max_length=50)
 
     def __str__(self):
-        return f'CheckIn for {self.login.username} - Status: {self.status}'
+        return f'CheckIn {self.checkin_id} for Booking {self.booking_id}'
 
 # User model for simplicity in some parts of the project
 class User(models.Model):
@@ -94,7 +98,8 @@ class Signup(models.Model):
 
     def __str__(self):
         return f'Signup for {self.login.username} on {self.signup_date}'
-    
+
+# CustomerLog model to track customer inquiries
 class CustomerLog(models.Model):
     SUBJECT_CHOICES = [
         ('general', 'General Inquiry'),
@@ -107,7 +112,7 @@ class CustomerLog(models.Model):
     phone = models.CharField(max_length=20)
     subject = models.CharField(max_length=20, choices=SUBJECT_CHOICES)
     message = models.TextField()
-    # Automatically sets the time when a log is created
  
     def __str__(self):
         return f"{self.email} - {self.subject}"
+2

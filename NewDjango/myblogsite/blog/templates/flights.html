@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/templatemo-villa-agency.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/navybar.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
   </head>
@@ -27,7 +28,7 @@
 <body>
 
   <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
+  {% comment %} <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
       <div class="dots">
@@ -36,7 +37,7 @@
         <span></span>
       </div>
     </div>
-  </div>
+  </div> {% endcomment %}
   <!-- ***** Preloader End ***** -->
 
   <div class="sub-header">
@@ -60,8 +61,32 @@
     </div>
   </div>
 
+  <div class="container">
+    <div class="navybar">
+      <div class="navbar66">
+        <div class="logo66"><a href="#">FlightMatch</a></div>
+        <ul class="menu66">
+          <li>
+            <a href="{% url 'home' %}">Home</a>
+          </li>
+          <li><a href="{% url 'flights' %}"class="active navy-active" >View Flights</a></li>
+          <li><a href="{% url 'booking' %}">Booking</a></li>
+          <li><a href="{% url 'checkin' %}">Check In</a></li>
+          <li><a href="{% url 'info' %}">Information</a></li>
+          <li><a href="{% url 'contact' %}">Customer Support</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li>
+            <a href="{% url 'login' %}"
+              ><i class="fa fa-calendar"></i> Login</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
+  {% comment %} <header class="header-area header-sticky">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -91,7 +116,7 @@
             </div>
         </div>
     </div>
-  </header>
+  </header> {% endcomment %}
   <!-- ***** Header Area End ***** -->
 
   <div class="page-heading header-text">

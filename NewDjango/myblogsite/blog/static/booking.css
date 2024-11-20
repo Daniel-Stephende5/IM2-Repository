@@ -99,3 +99,54 @@ footer {
     color: white;
     text-align: center;
 }
+
+
+.nav  {
+    --bs-nav-link-padding-x: 1rem !important; /* Horizontal padding for links */
+    --bs-nav-link-padding-y: 0.5rem !important; /* Vertical padding for links */
+    display: flex !important; /* Align items in a horizontal row */
+    flex-wrap: nowrap !important; /* Prevent wrapping to the next line */
+    justify-content: space-between !important; /* Distribute items evenly if needed */
+    padding: 0 !important; /* Remove default padding */
+    margin: 0 !important; /* Remove default margin */
+    list-style: none !important; /* Remove bullets */
+    background-color: #f8f9fa !important; /* Optional: background for better visibility */
+}
+
+.nav li {
+    margin: 0 !important; /* Remove default margin */
+    padding: 0 !important; /* Remove default padding */
+}
+
+.nav a {
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x) !important;
+    text-decoration: none !important; /* Remove underline */
+    color: #000 !important; /* Default text color */
+    white-space: nowrap !important; /* Prevent text from wrapping */
+}
+
+.nav a.active {
+    font-weight: bold !important; /* Highlight the active link */
+    color: #007bff !important; /* Active link color */
+}
+
+.nav a:hover {
+    color: #0056b3 !important; /* Hover state color */
+}
+
+
+.header-area {
+    position: relative !important;
+    background-color: #ff0000 !important;
+    height: auto !important; /* Let the height adjust based on content */
+    min-height: 100px !important; /* Ensure it doesn't shrink below 100px */
+    z-index: 100 !important;
+    display: flex !important; /* Align child elements in a row */
+    justify-content: space-between !important; /* Optional: Spread content */
+    align-items: center !important; /* Vertically align items inside */
+    padding: 0 20px !important; /* Add horizontal padding for better spacing */
+    -webkit-transition: all .5s ease 0s !important;
+    -moz-transition: all .5s ease 0s !important;
+    -o-transition: all .5s ease 0s !important;
+    transition: all .5s ease 0s !important;
+}

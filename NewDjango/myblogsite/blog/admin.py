@@ -42,8 +42,9 @@ class CustomerSupportAdmin(admin.ModelAdmin):
 # Registering the CheckIn model
 @admin.register(CheckIn)
 class CheckInAdmin(admin.ModelAdmin):
-    list_display = ('login', 'status')
-    search_fields = ('login__username', 'status')
+    list_display = ('checkin_id', 'booking_id', 'flight_id', 'checkin_time', 'status', 'seat_number')
+    search_fields = ('booking_id__login__username', 'status', 'seat_number')
+    list_filter = ('checkin_time', 'status')
 
 # Registering the Flight model
 @admin.register(Flight)
