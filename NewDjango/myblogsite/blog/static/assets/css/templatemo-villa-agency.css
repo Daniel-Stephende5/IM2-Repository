@@ -756,6 +756,10 @@ Banner Style
   background-image: url(../images/banner-03.jpg);
 }
 
+.main-banner .item-4 {
+  background-image: url(../images/banner-04.jpg);
+}
+
 .main-banner .item span.category {
   background-color: #fff;
   color: #1e1e1e;
