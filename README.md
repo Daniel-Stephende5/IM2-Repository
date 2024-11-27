@@ -30,7 +30,7 @@ The website offers intuitive features for both employees and administrators, pro
 
 ---
 
-## ⚙️Installation
+## ⚙️ Installation
 
 Follow these steps to set up the project on your local machine.
 
