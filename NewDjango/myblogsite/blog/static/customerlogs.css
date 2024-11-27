@@ -1,38 +1,4 @@
-/* main.css */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
- 
-/* Navigation Bar */
-nav {
-    background-color: #4F55C3;
-    padding: 15px 0;
-    text-align: center;
-}
- 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
- 
-nav a:hover {
-    background-color: #3B47A1;
-}
- 
-nav a[style] {
-    color: black;
-}
- 
-/* Logs Section */
-.container {
+.logs-container {
     max-width: 1000px;
     margin: 50px auto;
     padding: 20px;
@@ -41,9 +7,9 @@ nav a[style] {
     border-radius: 8px;
 }
  
-.container h2 {
+.logs-container h2 {
     font-size: 24px;
-    color: #4F55C3;
+    color: #fb7f2d;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -88,13 +54,17 @@ table td {
     border-bottom: 1px solid #EFF0F7;
 }
  
-/* Footer Styling */
-footer {
-    text-align: center;
-    padding: 15px 0;
-    background-color: #4F55C3;
-    color: white;
-    margin-top: 50px;
-    font-size: 14px;
+
+.logs-goback-text {
+    display: inline-block; /* or block */
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s;
 }
- 
+
+
+ .logs-goback-text:hover {
+    transform: scale(1.05);
+    background-color: #efefef;
+ }
