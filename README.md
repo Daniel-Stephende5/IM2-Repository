@@ -32,7 +32,7 @@ The website offers intuitive features for both employees and administrators, pro
 
 ## ⚙️ Installation
 
-Follow these steps to set up the project on your local machine.
+<h1>Follow these steps to set up the project on your local machine.</h1>
 
 ### Prerequisites
 
