@@ -41,7 +41,7 @@ The website offers intuitive features for both employees and administrators, pro
 
 Make sure you have the following software installed:
 
-- **Python 3.12.5 (you can check by running `python --version` or `python3 --version` in your terminal).
+- Python 3.12.5 (you can check by running `python --version` or `python3 --version` in your terminal).
 - **pip** (Python's package manager), usually installed alongside Python.
 - **Django** (installed through pip).
 - **MySQL Workbench**
