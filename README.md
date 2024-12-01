@@ -11,9 +11,9 @@ The website offers intuitive features for both employees and administrators, pro
 ## 🔨 Built With:
 - Python
 - Django
-- BootStrap css
-- Css
 - Html
+- Css
+- BootStrap css
 - JavaScript
 - MySql Workbench
 ---
@@ -135,7 +135,7 @@ After setting up the project and starting the server with `python manage.py runs
 
 ## 📝 Project Documentation/Resources
 
-UI/UX DESIGN: [Figma Prototype](https://www.figma.com/design/0e5BfOdvtAELFK7U6jpDsq/Tripma---Flight-booking-web-app-(Community))
+UI/UX DESIGN: [Figma Prototype](https://www.figma.com/design/8oKC2ZJAsDGzv5McHaKFK0/CSIT-327?node-id=0-1&node-type=canvas&t=Z5XasgHqmIqDLanj-0)
 
 Gantt Chart: [View Timeline](https://docs.google.com/spreadsheets/d/1RtIbCRl-FmereZ7Tpj5udKsKCI9Hw0kPL5Dq4iP-QKE/edit?fbclid=IwY2xjawGzcIhleHRuA2FlbQIxMAABHej8IBSb2SVHL-hYlW08w_0YEcDj8Rrd9NJU6izkvqKTg6Lkvc0lIqbrag_aem_u4wN5XH3qej5vk7bbkQXuQ&gid=1313092142#gid=1313092142)
 
