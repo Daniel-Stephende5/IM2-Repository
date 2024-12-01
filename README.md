@@ -52,7 +52,7 @@ Follow these steps to install the project:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/username/repository-name.git](https://github.com/Daniel-Stephende5/IM2-Repository.git
+    https://github.com/Daniel-Stephende5/IM2-Repository.git
     ```
 
 2. Navigate into the project directory:
