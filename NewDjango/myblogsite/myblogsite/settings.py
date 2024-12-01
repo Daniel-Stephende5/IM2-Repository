@@ -125,7 +125,7 @@ STATIC_URL = '/static/'
 
 # Corrected STATICFILES_DIRS setting
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    # BASE_DIR / 'static',
     BASE_DIR / 'blog' / 'static',  # Ensures that static files are accessible
 ]
 
