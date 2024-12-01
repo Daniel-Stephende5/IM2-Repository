@@ -12,7 +12,10 @@ The website offers intuitive features for both employees and administrators, pro
 - Python
 - Django
 - BootStrap css
+- Css
+- Html
 - JavaScript
+- MySql Workbench
 ---
 
 ## 🙋‍♂️ Members:
