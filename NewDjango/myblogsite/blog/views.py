@@ -184,3 +184,7 @@ def booking_create(request):
         return render(request, 'bookinglogin.html', {'form': form})
     else:
         return render(request, 'booking.html', {'form': form})
+
+# Admin View
+def heyadmin_view(request):
+    return render(request, 'heyadmin.html')
