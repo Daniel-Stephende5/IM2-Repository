@@ -26,7 +26,16 @@
       rel="stylesheet"
       href="{% static 'assets/css/templatemo-villa-agency.css' %}"
     />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/customersupport.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/customersupport.css' %}"
+    />
     <link rel="stylesheet" href="{% static 'assets/css/heyadmin.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/booking.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/navybar.css' %}" />
@@ -42,7 +51,6 @@
   </head>
 
   <body>
-
     <div class="sub-header">
       <div class="container">
         <div class="row">
@@ -90,13 +98,10 @@
                 >Admin Page</a
               >
             </li>
-
           </ul>
         </div>
       </div>
     </div>
-
-
 
     <div class="page-heading header-text">
       <div class="container">
@@ -107,7 +112,6 @@
         </div>
       </div>
     </div>
-
 
     {% if messages %}
     <ul>
@@ -121,7 +125,7 @@
       <h2>Check-in Form</h2>
       <form method="POST" class="checkin-form">
         {% csrf_token %}
-        
+
         <div class="form-group">
           <label for="booking_reference">Booking Reference:</label>
           <input
@@ -132,58 +136,148 @@
             required
           />
         </div>
-  
+
         <div class="form-group">
           <label for="checkin_time">Check-in Time:</label>
           <input type="date" id="checkin_time" name="checkin_time" required />
         </div>
-  
+
         <button type="submit" class="submit-btn">Submit</button>
       </form>
-  </div>
-    {% comment %}
-    <div class="contact-page section">
-      <div class="container">
-        <div class="row">
-          <div class="sign-col-lg-6">
-            <form id="contact-form" action="{% url 'checkin' %}" method="post">
-              {% csrf_token %}
-              <div class="row">
-                <div class="col-lg-12">
-   <form method="POST">
-      {% csrf_token %}
-      <label for="booking_reference">Booking Reference:</label>
-      <input
-        type="text"
-        id="booking_reference"
-        name="booking_reference"
-        required
-      />
-                </div>
-                <div class="col-lg-12">
-                  <fieldset>
-                    <label for="last_name">Last Name</label>
-                    <input
-                      type="text"
-                      name="last_name"
-                      id="last_name"
-                      placeholder="Enter Last Name..."
-                      required=""
-                    />
-                  </fieldset>
-                </div>
-                <fieldset>
-                  <button type="submit" id="form-submit" class="orange-button">
-                    Check In
-                  </button>
-                </fieldset>
-              </div>
-            </form>
-          </div>
+    </div>
+
+</br>
+</br>
+</br>
+<hr>
+
+    <div class="col-lg-6">
+      <h1>Customer Support</h1>
+      <form action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+
+        <div class="login-form-group">
+          <label for="id_email">Email:</label>
+          {{ form.email }}
         </div>
+
+        <div class="login-form-group">
+          <label for="id_phone">Phone Number:</label>
+          {{ form.phone }}
+        </div>
+
+        <div class="login-form-group">
+          <label for="id_subject">Subject:</label>
+          {{ form.subject }}
+        </div>
+
+        <div class="login-form-group">
+          <label for="id_message">Message:</label>
+          {{ form.message }}
+        </div>
+
+        <div class="login-form-group">
+          <button type="submit" id="form-submit" class="orange-button">
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+
+</br>
+<hr>
+<form id="contact-form" action="{% url 'booking' %}" method="post">
+    <h1>Booking</h1>
+
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-lg-12">
+        <fieldset>
+          <label for="departure_city">Departure City</label>
+          <input
+            type="text"
+            name="departure_city"
+            id="departure_city"
+            placeholder="Enter Departure City..."
+            required
+          />
+        </fieldset>
+      </div>
+      <div class="col-lg-12">
+        <fieldset>
+          <label for="arrival_destination">Arrival Destination</label>
+          <input
+            type="text"
+            name="arrival_destination"
+            id="arrival_destination"
+            placeholder="Enter Arrival Destination..."
+            required
+          />
+        </fieldset>
+      </div>
+      <div class="col-lg-12">
+        <fieldset>
+          <label for="departure_date">Departure Date</label>
+          <input
+            type="date"
+            name="departure_date"
+            id="departure_date"
+            placeholder="Enter Departure Date"
+            required
+          />
+        </fieldset>
+      </div>
+      <div class="col-lg-12">
+        <fieldset>
+          <label for="return_date">Return Date</label>
+          <input
+            type="date"
+            name="return_date"
+            id="return_date"
+            placeholder="Enter Return Date"
+            required
+          />
+        </fieldset>
+      </div>
+      <div class="col-lg-12">
+        <fieldset>
+          <label for="passengers">Passengers</label>
+          <input
+            type="number"
+            name="passengers"
+            id="passengers"
+            placeholder="Enter Number of Passengers"
+            required
+          />
+        </fieldset>
+      </div>
+      <div class="col-lg-12">
+        <fieldset>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter Email"
+            required
+          />
+        </fieldset>
+      </div>
+      <div class="col-lg-12">
+        <fieldset>
+          <button
+            type="submit"
+            id="form-submit"
+            class="orange-button"
+          >
+            Submit
+          </button>
+        </fieldset>
       </div>
     </div>
-    {% endcomment %}
+  </form>
+<hr>
+
 
     <footer>
       <div class="container">
