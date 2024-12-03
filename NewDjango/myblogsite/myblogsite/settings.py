@@ -32,6 +32,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -86,9 +90,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'airplane',
         'USER': 'root',
-        'PASSWORD': 'password',
+        'PASSWORD': 'root',
         'PORT': 3306,
-        'HOST': '127.0.0.1'
+        'HOST': 'localhost'
     }
 }
 
