@@ -482,9 +482,104 @@
         <button type="submit" class="submit-btn">Delete</button>
 
       </form>
+      
   </div>
 
+           <div class="col-lg-6">
+            <form id="contact-form" action="{% url 'booking' %}" method="post">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-lg-12">
+                  <h1 class="booking-title">Booking</h1>
+                  <fieldset>
+                    <label for="departure_city">Departure City</label>
+                    <input
+                      type="text"
+                      name="departure_city"
+                      id="departure_city"
+                      placeholder="Enter Departure City..."
+                      required
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <label for="arrival_destination">Arrival Destination</label>
+                    <input
+                      type="text"
+                      name="arrival_destination"
+                      id="arrival_destination"
+                      placeholder="Enter Arrival Destination..."
+                      required
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <label for="departure_date">Departure Date</label>
+                    <input
+                      type="date"
+                      name="departure_date"
+                      id="departure_date"
+                      placeholder="Enter Departure Date"
+                      required
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <label for="return_date">Return Date</label>
+                    <input
+                      type="date"
+                      name="return_date"
+                      id="return_date"
+                      placeholder="Enter Return Date"
+                      required
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <label for="passengers">Passengers</label>
+                    <input
+                      type="number"
+                      name="passengers"
+                      id="passengers"
+                      placeholder="Enter Number of Passengers"
+                      required
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Enter Email"
+                      required
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <button
+                      type="submit"
+                      id="form-submit"
+                      class="orange-button"
+                    >
+                      Submit
+                    </button>
+                  </fieldset>
+                </div>
+              </div>
+            </form>
+          </div>
+
 </div>
+
+
 
 
     <!--Container Main end-->
