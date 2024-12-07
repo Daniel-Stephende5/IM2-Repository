@@ -124,6 +124,27 @@ a {
     font-size: 1.25rem;
 }
 
+/* Horizontal line styling */
+.nav-divider {
+    margin: 1rem 0;
+    height: 1px;
+    background-color: var(--first-color-light);
+    border: none;
+    opacity: 0.2;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+/* Content divider styling */
+.content-divider {
+    margin: 1.5rem 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--first-color), var(--first-color-light));
+    border: none;
+    opacity: 0.3;
+    border-radius: 2px;
+}
+
 /* Utility Classes */
 .show {
     left: 0;
